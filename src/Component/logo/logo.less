@@ -1,0 +1,21 @@
+@r: 0.8;
+@img: './img/logo.png';
+
+#logo {
+	position: absolute;
+	background-image: url(@img);
+	width: image-width(@img) * @r;
+	height: image-height(@img) * @r;
+	background-size: 100%;
+	top: 28px;
+	left: 28px;
+	cursor: pointer;
+	transform-origin: left top;
+}
+
+@media only screen and (max-width: 768px) {
+	#logo {
+		width: image-width(@img);
+		height: image-height(@img);
+	}
+}

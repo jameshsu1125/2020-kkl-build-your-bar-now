@@ -1,0 +1,126 @@
+.loop(@n, @l:0) when (@l <= @n) {
+	&:nth-child(@{l}) {
+		top: -40px + @l * 40px;
+	}
+	.loop(@n,(@l+1));
+}
+#birthday {
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.7);
+	width: 100%;
+	height: 460px;
+	bottom: -460px;
+	left: 0px;
+	text-align: center;
+
+	.context {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+
+		.title {
+			width: 100%;
+			color: #fff;
+			font-size: 1.2em;
+			padding: 20px 0px;
+		}
+
+		.b {
+			width: 100%;
+			height: 100px;
+			text-align: center;
+
+			.btn {
+				width: 604px;
+				height: 70px;
+				display: inline-block;
+				border: solid #fff 2px;
+				color: #fff;
+				line-height: 70px;
+				font-size: 1.7em;
+				border-radius: 10px;
+				cursor: pointer;
+				transition: 0.2s;
+
+				&:hover {
+					background-color: rgba(209, 173, 90, 1);
+				}
+			}
+		}
+
+		.date {
+			width: 698px;
+			height: 125px;
+
+			display: inline-block;
+			padding: 20px;
+
+			.col {
+				float: left;
+				width: 100%/3;
+				height: 100%;
+				box-sizing: content-box;
+				text-align: center;
+
+				.head {
+					width: 100%;
+					height: auto;
+					padding: 10px 0;
+					color: #fff;
+					font-size: 1.2em;
+					box-sizing: content-box;
+				}
+
+				.select {
+					width: 60%;
+					position: relative;
+					display: inline-block;
+
+					&:after {
+						position: absolute;
+						content: '▼';
+						font: 17px 'Consolas', monospace;
+						color: #fff;
+						right: 7px;
+						top: 8px;
+						padding: 0 10px 2px 13px;
+						border-left: 1px solid #fff;
+						pointer-events: none;
+					}
+
+					select {
+						appearance: none;
+						display: block;
+						width: 100%;
+						max-width: 320px;
+						height: 40px;
+						float: right;
+						margin: 0px 0px;
+						padding: 0px 14px;
+						font-size: 18px;
+						line-height: 1.75;
+						color: #fff;
+						background-color: #d1ad5a;
+						background-image: none;
+						word-break: normal;
+						text-indent: 0px;
+
+						&::-ms-expand {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	#birthday {
+		.context {
+			.title {
+				font-size: 1.7em;
+			}
+		}
+	}
+}

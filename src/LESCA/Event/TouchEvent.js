@@ -2,7 +2,14 @@ module.exports = {
 	db: {},
 	init() {
 		this.fn = function (e) {
-			if (e.cancelable) if (!e.defaultPrevented) if (e.target.localName != 'input' && e.target.localName != 'button') e.preventDefault();
+			if (e.cancelable)
+				if (!e.defaultPrevented)
+					if (
+						e.target.localName != 'input' &&
+						e.target.localName != 'button' &&
+						e.target.localName != 'select'
+					)
+						e.preventDefault();
 			this.get(e.target);
 		}.bind(this);
 		this.m = this.device();

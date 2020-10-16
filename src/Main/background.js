@@ -1,26 +1,22 @@
 import React from 'react';
 import './background.less';
 
+import $ from 'jquery';
+require('jquery-easing');
+
 export default class background extends React.Component {
 	constructor(props) {
 		super(props);
-		const root = this;
-		//script
 	}
 
-	componentDidMount() {
-		//
-	}
-
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
+	out() {
+		$(this.refs.bg)
+			.animate({ opacity: 0.2 }, 500, 'easeOutQuart')
+			.delay(500)
+			.animate({ opacity: 0 }, 500, 'easeOutQuart');
 	}
 
 	render() {
-		return <div id="background"></div>;
+		return <div ref='bg' id='background'></div>;
 	}
 }

@@ -12,21 +12,15 @@ export default class main extends React.Component {
 		TouchEvent.init();
 	}
 
-	componentDidMount() {}
-
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
+	out() {
+		this.refs.bg.out();
 	}
 
 	render() {
 		return (
 			<div id='main'>
-				<Background />
-				<Content TouchEvent={TouchEvent} />
+				<Background ref='bg' />
+				<Content ref='c' TouchEvent={TouchEvent} out={this.out.bind(this)} />
 				<Warning />
 			</div>
 		);

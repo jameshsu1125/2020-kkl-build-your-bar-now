@@ -8,6 +8,7 @@ const path = require('path');
 module.exports = {
 	entry: {
 		index: './src/index.js',
+		examination: './src/examination.js',
 	},
 	module: {
 		rules: [

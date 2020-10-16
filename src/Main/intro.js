@@ -1,5 +1,6 @@
 import React from 'react';
 import './intro.less';
+
 import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
@@ -10,15 +11,37 @@ export default class intro extends React.Component {
 		const root = this;
 		this.tr = {
 			init: function () {
-				this.c = $(root.refs.main);
+				this.txt = $(root.refs.txt);
+				this.txt.css('line-height', '1000px');
 				this.btn.init();
 				this.arr0.init();
 				this.arr1.init();
 			},
 			in: function () {
-				this.btn.in();
 				this.arr0.in();
 				this.arr1.in();
+				$(root.refs.txt).animate(
+					{
+						'line-height': '28px',
+					},
+					1000,
+					'easeOutExpo',
+					() => {
+						this.btn.in();
+					}
+				);
+			},
+			out: function () {
+				$(root.refs.txt).animate(
+					{
+						opacity: 0,
+					},
+					500,
+					'easeOutQuart',
+					() => {
+						root.props.enter();
+					}
+				);
 			},
 			destory: function () {
 				this.btn.destory();
@@ -39,9 +62,7 @@ export default class intro extends React.Component {
 				play: function () {
 					$(this)
 						.animate(
-							{
-								t: 35,
-							},
+							{ t: 35 },
 							{
 								duration: this.time,
 								step: () => this.tran(),
@@ -50,9 +71,7 @@ export default class intro extends React.Component {
 							}
 						)
 						.animate(
-							{
-								t: 15,
-							},
+							{ t: 15 },
 							{
 								duration: this.time,
 								step: () => this.tran(),
@@ -86,9 +105,7 @@ export default class intro extends React.Component {
 				play: function () {
 					$(this)
 						.animate(
-							{
-								t: 20,
-							},
+							{ t: 20 },
 							{
 								duration: this.time,
 								step: () => this.tran(),
@@ -97,9 +114,7 @@ export default class intro extends React.Component {
 							}
 						)
 						.animate(
-							{
-								t: 0,
-							},
+							{ t: 0 },
 							{
 								duration: this.time,
 								step: () => this.tran(),
@@ -142,14 +157,15 @@ export default class intro extends React.Component {
 				evt: function () {
 					this.c.mouseover(() => this.mouseover());
 					this.c.mouseout(() => this.mouseout());
+					root.props.TouchEvent.add('intro_btn', () => {
+						root.tr.out();
+					});
 				},
 				mouseout: function () {
 					$(this).clearQueue();
 					$(this).stop();
 					$(this).animate(
-						{
-							x: 0,
-						},
+						{ x: 0 },
 						{
 							duration: this.time,
 							step: () => this.tran(),
@@ -162,9 +178,7 @@ export default class intro extends React.Component {
 					$(this).clearQueue();
 					$(this).stop();
 					$(this).animate(
-						{
-							x: 40,
-						},
+						{ x: 40 },
 						{
 							duration: this.time,
 							step: () => this.tran(),
@@ -177,10 +191,11 @@ export default class intro extends React.Component {
 					this.c.css('margin-left', this.x + 'px');
 				},
 				text: {
-					color: parseInt('ff', 16),
+					color: parseInt('33', 16),
 					time: 50,
 					init: function () {
 						this.c = $(root.refs.t);
+						this.tran();
 					},
 					in: function () {
 						this.frame = setInterval(() => this.play(), 100);
@@ -210,11 +225,12 @@ export default class intro extends React.Component {
 					},
 				},
 				outline: {
-					o: 0,
+					o: 0.3,
 					time: 50,
 					prob: 0.9,
 					init: function () {
 						this.c = $(root.refs.o);
+						this.tran();
 					},
 					in: function () {
 						this.frame = setInterval(() => this.play(), 100);
@@ -244,11 +260,12 @@ export default class intro extends React.Component {
 					},
 				},
 				inline: {
-					o: 0,
+					o: 0.3,
 					time: 50,
 					prob: 0.93,
 					init: function () {
 						this.c = $(root.refs.i);
+						this.tran();
 					},
 					in: function () {
 						this.frame = setInterval(() => this.play(), 100);
@@ -281,11 +298,15 @@ export default class intro extends React.Component {
 		};
 	}
 
+	in() {
+		this.tr.in();
+	}
+
 	componentDidMount() {
 		this.tr.init();
 		$(this.refs.main).waitForImages({
-			finished: () => this.tr.in(),
-			each: (e) => {},
+			finished: () => {},
+			each: () => {},
 			waitForAll: true,
 		});
 	}
@@ -297,7 +318,7 @@ export default class intro extends React.Component {
 	render() {
 		return (
 			<div ref='main' id='intro'>
-				<div className='t'>
+				<div ref='txt' className='txt'>
 					歡迎您進入金酒新4界
 					<br />
 					您將成為金酒世界酒館CEO
@@ -315,6 +336,7 @@ export default class intro extends React.Component {
 						<div ref='o' className='o'></div>
 						<div ref='i' className='i'></div>
 						<div ref='t' className='t'></div>
+						<div id='intro_btn' class='touch'></div>
 					</div>
 					<br />
 					<span>

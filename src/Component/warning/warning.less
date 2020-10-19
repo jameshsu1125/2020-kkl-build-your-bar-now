@@ -6,14 +6,17 @@
 	bottom: 0;
 	text-align: center;
 	overflow: hidden;
+	min-width: 768px;
 
 	div {
 		position: absolute;
+		height: 100%;
 		float: left;
 		color: #fff;
-		font-size: 3em;
-		line-height: 10vh;
+		font-size: 40px;
 		transform: scale(0.64, 1);
+		transform-origin: center center;
+		box-sizing: border-box;
 	}
 
 	.ico {
@@ -25,10 +28,10 @@
 	}
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
 	#warning {
 		div {
-			font-size: 2em;
+			font-size: 55px;
 		}
 	}
 }

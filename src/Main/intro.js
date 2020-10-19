@@ -32,16 +32,7 @@ export default class intro extends React.Component {
 				);
 			},
 			out: function () {
-				$(root.refs.txt).animate(
-					{
-						opacity: 0,
-					},
-					500,
-					'easeOutQuart',
-					() => {
-						root.props.enter();
-					}
-				);
+				root.props.enter();
 			},
 			destory: function () {
 				this.btn.destory();

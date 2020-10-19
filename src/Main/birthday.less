@@ -26,9 +26,11 @@
 		}
 
 		.b {
+			position: absolute;
 			width: 100%;
 			height: 100px;
 			text-align: center;
+			bottom: 130px;
 
 			.btn {
 				width: 604px;
@@ -117,9 +119,29 @@
 
 @media only screen and (max-width: 768px) {
 	#birthday {
+		height: 600px;
 		.context {
 			.title {
 				font-size: 1.7em;
+			}
+			.date {
+				.col {
+					.select {
+						width: 90%;
+						&:after {
+							padding: 14px 11px 11px 13px;
+							font: 24px 'Consolas', monospace;
+						}
+						select {
+							height: 70px;
+							line-height: 70px;
+							font-size: 34px;
+						}
+					}
+				}
+			}
+			.b {
+				bottom: 180px;
 			}
 		}
 	}

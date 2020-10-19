@@ -4,6 +4,7 @@ import Background from './background';
 import Warning from './../Component/warning/warning';
 import Content from './content';
 import TouchEvent from 'EVENT/TouchEvent';
+import OC from 'UI/OrientationChange';
 
 export default class main extends React.Component {
 	constructor(props) {
@@ -22,6 +23,7 @@ export default class main extends React.Component {
 				<Background ref='bg' />
 				<Content ref='c' TouchEvent={TouchEvent} out={this.out.bind(this)} />
 				<Warning />
+				<OC />
 			</div>
 		);
 	}

@@ -1,6 +1,6 @@
 import React from 'react';
-import { OrientationChange } from './../Device/Sensor';
-import './orientationChange.less';
+import { OrientationChange } from '../Device/Sensor';
+import './OrientationChange.less';
 
 export default class orientationChange extends React.Component {
 	constructor(props) {
@@ -11,10 +11,10 @@ export default class orientationChange extends React.Component {
 	componentDidMount() {
 		OrientationChange.init({
 			callback: (e) => {
-				var dw = this.props.dw || 750;
+				var dw = this.props.dw || 768;
 				var s = window.screen.width / dw;
 				var p = document.querySelector('meta[name="viewport"]');
-				p.content = 'width=640, minimum-scale=' + s + ', maximum-scale=' + s + ', initial-scale=' + s;
+				p.content = `width=768, minimum-scale=${s},  initial-scale=${s}`;
 				this.setState({
 					show: e != 0,
 				});

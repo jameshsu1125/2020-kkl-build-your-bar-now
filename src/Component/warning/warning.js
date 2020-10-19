@@ -13,14 +13,16 @@ export default class warning extends React.Component {
 				$(window).resize(this.resize);
 			},
 			resize: function () {
-				let w = window.innerWidth / (root.text.length - 1);
-				let h = window.innerHeight * 0.1;
-				if (window.innerWidth > 600) h = 3.5;
-				else h = 2.3;
+				let dw = window.innerWidth > 768 ? window.innerWidth : 768,
+					w = dw / (root.text.length - 1),
+					h;
+				if (window.innerWidth > 768) h = 3;
+				else h = 3.6;
 				$(root.refs.main)
 					.children('div')
 					.each(function (i) {
 						$(this).css({
+							'line-height': window.innerHeight * 0.1 + 'px',
 							left: i * w - h * i + 'px',
 						});
 					});

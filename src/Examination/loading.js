@@ -4,8 +4,6 @@ import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
 
-import EnterFrame from 'UNIT/EnterFrame';
-
 export default class loading extends React.Component {
 	constructor(props) {
 		super(props);
@@ -37,6 +35,20 @@ export default class loading extends React.Component {
 
 				this.canvas.in();
 				this.text.in();
+			},
+			out: function () {
+				$(this).animate(
+					{ t: -50, o: 0 },
+					{
+						duration: this.time,
+						step: () => this.tran(),
+						complete: () => {
+							this.tran();
+							root.props.end();
+						},
+						easing: 'easeInBack',
+					}
+				);
 			},
 			tran: function () {
 				this.c.css({
@@ -149,6 +161,10 @@ export default class loading extends React.Component {
 				},
 			},
 		};
+	}
+
+	out() {
+		this.tr.out();
 	}
 
 	componentDidMount() {

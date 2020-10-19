@@ -34,7 +34,11 @@ export default class content extends React.Component {
 	appendApp() {
 		if (this.state.App == 'intro') {
 			return (
-				<Intro ref='intro' TouchEvent={this.props.TouchEvent} enter={this.intro_enter.bind(this)} />
+				<Intro
+					ref='intro'
+					TouchEvent={this.props.TouchEvent}
+					enter={this.intro_enter.bind(this)}
+				/>
 			);
 		} else if (this.state.App == 'birthday') {
 			return (
@@ -45,7 +49,12 @@ export default class content extends React.Component {
 				/>
 			);
 		} else if (this.state.App == 'ageWarning') {
-			return <AgeWarning end={this.ageWarningEnd.bind(this)} TouchEvent={this.props.TouchEvent} />;
+			return (
+				<AgeWarning
+					end={this.ageWarningEnd.bind(this)}
+					TouchEvent={this.props.TouchEvent}
+				/>
+			);
 		}
 	}
 
@@ -58,8 +67,8 @@ export default class content extends React.Component {
 			<div id='content'>
 				<Sign ref='sign' ready={this.signReady.bind(this)} />
 				{this.appendApp()}
-				<Logo TouchEvent={this.props.TouchEvent} />
 				<Menu TouchEvent={this.props.TouchEvent} />
+				<Logo TouchEvent={this.props.TouchEvent} />
 			</div>
 		);
 	}

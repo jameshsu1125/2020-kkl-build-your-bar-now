@@ -8,13 +8,13 @@ export default class logo extends React.Component {
 		super(props);
 	}
 
-	click() {
+	componentDidMount() {
 		this.props.TouchEvent.add('logo', () => {
 			window.location.href = Hash.root();
 		});
 	}
 
 	render() {
-		return <div id='logo' onClick={this.click.bind(this)}></div>;
+		return <div id='logo'></div>;
 	}
 }

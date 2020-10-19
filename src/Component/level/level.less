@@ -1,0 +1,57 @@
+@r: 0.8;
+
+#level {
+	position: absolute;
+	width: 320px;
+	height: 32px;
+	left: 30px;
+	bottom: 30px;
+	transform: scale(@r);
+	transform-origin: left bottom;
+
+	.circle {
+		float: left;
+		width: 22px;
+		height: 22px;
+		background-color: transparent;
+		border-radius: 50%;
+		border: solid #d1ad5a 2px;
+		margin-top: 2px;
+	}
+
+	.on {
+		background-color: #d1ad5a;
+	}
+
+	.dashed {
+		float: left;
+		width: 29px;
+		height: 2px;
+		background-color: #d1ad5a;
+		margin-top: (26px/2)+1px;
+	}
+
+	.back {
+		float: left;
+		width: 93px;
+		height: 28px;
+		border-radius: 28px/2;
+		border: solid #d1ad5a 2px;
+		margin-left: 28px;
+		font-size: 19px;
+		color: #d1ad5a;
+		cursor: pointer;
+		transition: 0.1s;
+
+		&:hover {
+			background-color: #d1ad5a;
+			color: #fff;
+		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	#level {
+		transform: scale(1);
+	}
+}

@@ -10,7 +10,7 @@ module.exports = {
 						e.target.localName != 'select'
 					)
 						e.preventDefault();
-			this.get(e.target);
+			this.get(e);
 		}.bind(this);
 		this.m = this.device();
 		if (this.m == 'mobile') {
@@ -30,8 +30,8 @@ module.exports = {
 		else return 'desktop';
 	},
 	get(e) {
-		if (!this.db[e.id]) return;
-		this.db[e.id](e);
+		if (!this.db[e.target.id]) return;
+		this.db[e.target.id](e);
 	},
 	add(
 		id = 'ID',

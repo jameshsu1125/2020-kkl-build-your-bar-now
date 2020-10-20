@@ -97,16 +97,6 @@ export default class main extends React.Component {
 				root.refs.touch.addEventListener('mousemove', this.touchMove);
 				document.addEventListener('mouseup', this.mouseup);
 			},
-			autoPlay() {
-				let gap = 2000;
-				let n = 0;
-				for (var i = 0; i < 5; i++) {
-					setTimeout(() => {
-						n++;
-						this.switcher.switch(n == 5 ? false : n);
-					}, gap * i);
-				}
-			},
 			arl: {
 				o: 0,
 				time: 500,
@@ -227,7 +217,9 @@ export default class main extends React.Component {
 				},
 				ready() {
 					var c = $(this.c.children('div')[0]);
-					c.css('opacity', 1);
+					setTimeout(() => {
+						c.css('opacity', 1);
+					}, 1000);
 					this.moveTo(1);
 					root.tr.arr.in();
 					root.tr.arl.in();
@@ -281,7 +273,10 @@ export default class main extends React.Component {
 							{
 								duration: this.time,
 								step: () => this.tran(),
-								complete: () => this.tran(),
+								complete: () => {
+									this.tran();
+									root.tr.switcher.switch(false);
+								},
 								easing: 'easeOutQuart',
 							}
 						);
@@ -368,10 +363,7 @@ export default class main extends React.Component {
 							{
 								duration: this.time,
 								step: () => this.tran(),
-								complete: () => {
-									this.tran();
-									root.tr.autoPlay();
-								},
+								complete: () => this.tran(),
 								easing: 'easeOutQuart',
 							}
 						);
@@ -540,30 +532,30 @@ export default class main extends React.Component {
 					</div>
 				</div>
 				<div id='q1' ref='q1' className='btn row-a'>
-					•原麴系•
+					• 穀糧系 •
 					<br />
 					淡雅清香
 					<br />
 					尾韻悠長
 				</div>
 				<div id='q2' ref='q2' className='btn row-b'>
-					•莓果系•
+					• 莓果系 •
 					<br />
 					沉香濃郁
 					<br />
 					圓潤細膩
 				</div>
 				<div id='q3' ref='q3' className='btn row-c'>
-					•花香系•
+					• 花果系 •
 					<br />
-					甘美棉柔
+					甘美綿柔
 					<br />
 					回味怡暢
 				</div>
 				<div id='q4' ref='q4' className='btn row-d'>
-					•熟瓜系•
+					• 果梅系 •
 					<br />
-					如口爽冽
+					入口爽冽
 					<br />
 					純甜淨爽
 				</div>

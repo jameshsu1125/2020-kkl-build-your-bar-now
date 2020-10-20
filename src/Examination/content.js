@@ -9,7 +9,7 @@ import Question_A from './Quest_A/main';
 import Question_B from './Quest_B/main';
 import Question_C from './Quest_C/main';
 import Question_D from './Quest_D/main';
-import Result from './result';
+import Result from './Result/main';
 import Submit from './../Component/submit/submit';
 import Level from './../Component/level/level';
 
@@ -19,7 +19,7 @@ export default class content extends React.Component {
 		const root = this;
 		this.state = { loading: false, question: false };
 		Loader.onend = this.loader_end.bind(this);
-		this.data = [];
+		this.data = [1, 0, 0, 0];
 	}
 
 	loader_end() {
@@ -37,7 +37,7 @@ export default class content extends React.Component {
 	loader_remove() {
 		this.setState({ loading: false });
 		this.setState({ question: 'A' }, () => {
-			//this.setState({ question: 'D' }, () => {
+			//this.setState({ question: 'Result' }, () => {
 			this.refs.question.in();
 		});
 	}
@@ -115,7 +115,7 @@ export default class content extends React.Component {
 					<Result
 						ref='question'
 						TouchEvent={this.props.TouchEvent}
-						score={this.data}
+						data={this.data}
 					/>
 				);
 		}
@@ -138,7 +138,6 @@ export default class content extends React.Component {
 			});
 		});
 		this.refs.level.push();
-		console.log(this.data);
 	}
 
 	render() {

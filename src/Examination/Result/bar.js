@@ -1,12 +1,10 @@
 import React from 'react';
-import './result.less';
+import './bar.less';
 
-export default class result extends React.Component {
+export default class bar extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
-		//script
-		alert('page = result, selected data = ' + JSON.stringify(this.props.score));
 	}
 
 	componentDidMount() {
@@ -21,9 +19,11 @@ export default class result extends React.Component {
 		//script
 	}
 
-	in() {}
-
 	render() {
-		return <div id='result'>Result</div>;
+		return (
+			<div id='bar'>
+				<div className={'img c' + this.props.data}></div>
+			</div>
+		);
 	}
 }

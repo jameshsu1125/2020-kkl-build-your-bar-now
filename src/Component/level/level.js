@@ -18,7 +18,7 @@ export default class level extends React.Component {
 			},
 			set() {
 				for (var i = 0; i < 4; i++) $(root.refs['c' + i]).removeClass('on');
-				$(root.refs['c' + this.index]).addClass('on');
+				for (var i = 0; i <= this.index; i++) $(root.refs['c' + i]).addClass('on');
 			},
 			in() {
 				$(this).animate(

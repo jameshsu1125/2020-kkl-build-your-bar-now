@@ -56,6 +56,9 @@ export default class content extends React.Component {
 				root.props.TouchEvent.add('menu_5', () => {
 					window.location.href = '#';
 				});
+				root.props.TouchEvent.add('menu_6', () => {
+					window.location.href = '#';
+				});
 				this.resize();
 				$(window).resize(() => this.resize());
 			},
@@ -98,6 +101,9 @@ export default class content extends React.Component {
 							單醇 絕不簡單 品牌廣告
 						</div>
 						<div id='menu_5' className='btn'>
+							即玩即送One Shot
+						</div>
+						<div id='menu_6' className='btn'>
 							活動條款
 						</div>
 					</div>

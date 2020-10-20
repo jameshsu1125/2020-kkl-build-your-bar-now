@@ -97,16 +97,6 @@ export default class main extends React.Component {
 				root.refs.touch.addEventListener('mousemove', this.touchMove);
 				document.addEventListener('mouseup', this.mouseup);
 			},
-			autoPlay() {
-				let gap = 2000;
-				let n = 0;
-				for (var i = 0; i < 5; i++) {
-					setTimeout(() => {
-						n++;
-						this.switcher.switch(n == 5 ? false : n);
-					}, gap * i);
-				}
-			},
 			arl: {
 				o: 0,
 				time: 500,
@@ -227,7 +217,9 @@ export default class main extends React.Component {
 				},
 				ready() {
 					var c = $(this.c.children('div')[0]);
-					c.css('opacity', 1);
+					setTimeout(() => {
+						c.css('opacity', 1);
+					}, 1000);
 					this.moveTo(1);
 					root.tr.arr.in();
 					root.tr.arl.in();
@@ -284,7 +276,7 @@ export default class main extends React.Component {
 								step: () => this.tran(),
 								complete: () => {
 									this.tran();
-									//
+									root.tr.switcher.switch(false);
 								},
 								easing: 'easeOutQuart',
 							}
@@ -314,11 +306,7 @@ export default class main extends React.Component {
 							{
 								duration: this.time,
 								step: () => this.tran(),
-								complete: () => {
-									this.tran();
-
-									//
-								},
+								complete: () => this.tran(),
 								easing: 'easeOutQuart',
 							}
 						);
@@ -376,10 +364,7 @@ export default class main extends React.Component {
 							{
 								duration: this.time,
 								step: () => this.tran(),
-								complete: () => {
-									this.tran();
-									root.tr.autoPlay();
-								},
+								complete: () => this.tran(),
 								easing: 'easeOutQuart',
 							}
 						);
@@ -564,7 +549,7 @@ export default class main extends React.Component {
 				<div id='q4' ref='q4' className='btn row-d'>
 					不好奢華享樂
 					<br />
-					我執簡約樸實
+					執著簡約樸實
 				</div>
 				<div ref='img' className='image'>
 					<div ref='imgc' className='img-c'>

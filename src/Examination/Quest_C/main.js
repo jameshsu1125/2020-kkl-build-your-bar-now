@@ -96,16 +96,6 @@ export default class main extends React.Component {
 				root.refs.touch.addEventListener('mousemove', this.touchMove);
 				document.addEventListener('mouseup', this.mouseup);
 			},
-			autoPlay() {
-				let gap = 2000;
-				let n = 0;
-				for (var i = 0; i < 5; i++) {
-					setTimeout(() => {
-						n++;
-						this.switcher.switch(n == 5 ? false : n);
-					}, gap * i);
-				}
-			},
 			arl: {
 				o: 0,
 				time: 500,
@@ -226,7 +216,9 @@ export default class main extends React.Component {
 				},
 				ready() {
 					var c = $(this.c.children('div')[0]);
-					c.css('opacity', 1);
+					setTimeout(() => {
+						c.css('opacity', 1);
+					}, 1000);
 					this.moveTo(1);
 					root.tr.arr.in();
 					root.tr.arl.in();
@@ -278,7 +270,10 @@ export default class main extends React.Component {
 							{
 								duration: this.time,
 								step: () => this.tran(),
-								complete: () => this.tran(),
+								complete: () => {
+									this.tran();
+									root.tr.switcher.switch(false);
+								},
 								easing: 'easeOutQuart',
 							}
 						);
@@ -365,10 +360,7 @@ export default class main extends React.Component {
 							{
 								duration: this.time,
 								step: () => this.tran(),
-								complete: () => {
-									this.tran();
-									root.tr.autoPlay();
-								},
+								complete: () => this.tran(),
 								easing: 'easeOutQuart',
 							}
 						);
@@ -537,28 +529,28 @@ export default class main extends React.Component {
 					</div>
 				</div>
 				<div id='q1' ref='q1' className='btn row-a'>
-					•特殊節日•
+					• 特殊節日 •
 					<br />
 					每一個心中小日
 					<br />
 					都是小酌的節日
 				</div>
 				<div id='q2' ref='q2' className='btn row-b'>
-					•獨自品味•
+					• 獨自品味 •
 					<br />
 					每一口人生甘醇
 					<br />
 					只有自己才懂得
 				</div>
 				<div id='q3' ref='q3' className='btn row-c'>
-					•社交應酬•
+					• 社交應酬 •
 					<br />
 					江湖鬥陣走，把酒交心
 					<br />
 					面子裡子都要有
 				</div>
 				<div id='q4' ref='q4' className='btn row-d'>
-					•親友相聚•
+					• 親友相聚 •
 					<br />
 					把酒交心
 					<br />

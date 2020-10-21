@@ -112,11 +112,21 @@ export default class scene extends React.Component {
 								this.tran();
 								this.isView();
 								this.is = true;
+								this.playScene();
 								if (is) this.ined();
 							},
 							easing: 'easeOutQuart',
 						}
 					);
+				},
+				playScene() {
+					let stage = [false, 'stage_a', 'stage_b', 'stage_c', 'stage_d'];
+					for (var i in stage) {
+						if (stage[i]) {
+							if (this.index == i) root.refs[stage[i]].play();
+							else root.refs[stage[i]].stop();
+						}
+					}
 				},
 				ined() {
 					root.refs.dc.style.opacity = 1;

@@ -13,12 +13,14 @@
 		color: #988783;
 		padding: 34px 0px;
 		box-sizing: border-box;
-		font-size: 25px;
+		font-size: 1.6em;
 		line-height: 38px;
 		cursor: pointer;
 		display: none;
 		background-size: 100%;
-		// &:hover { background-position-y: image-height(@btn) / 2; color: #fff; }
+		&:hover {
+			color: #fff;
+		}
 	}
 	.row-a {
 		margin-top: @lt;
@@ -42,6 +44,14 @@
 	}
 	.image {
 		.img-c {
+			width: 768px !important;
+			mask-image: url('./img/mask.png');
+
+			& > div {
+				position: absolute !important;
+				left: 768px * 1.5;
+				transform-origin: 376px 94px;
+			}
 			div > div {
 				position: absolute;
 			}
@@ -55,19 +65,6 @@
 				top: 77px;
 			}
 
-			.img_dc {
-				opacity: 0;
-				//background-image: url('./img/3.png');
-
-				.photo {
-					@img: './img/d-0.png';
-					background-image: url(@img);
-					width: image-width(@img);
-					height: image-height(@img);
-					left: 226px;
-					top: 111px;
-				}
-			}
 			.img_a {
 				//background-image: url('./img/0.png');
 
@@ -107,17 +104,6 @@
 				//background-image: url('./img/3.png');
 				.photo {
 					@img: './img/d-0.png';
-					background-image: url(@img);
-					width: image-width(@img);
-					height: image-height(@img);
-					left: 226px;
-					top: 111px;
-				}
-			}
-			.img_ac {
-				//background-image: url('./img/0.png');
-				.photo {
-					@img: './img/a-0.png';
 					background-image: url(@img);
 					width: image-width(@img);
 					height: image-height(@img);

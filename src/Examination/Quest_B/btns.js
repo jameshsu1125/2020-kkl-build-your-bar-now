@@ -123,7 +123,7 @@ export default class btns extends React.Component {
 					尾韻悠長
 				</div>
 				<div id='q2' ref='q2' className='btn row-b'>
-					• 莓果系 •
+					• 果梅系 •
 					<br />
 					沉香濃郁
 					<br />
@@ -137,7 +137,7 @@ export default class btns extends React.Component {
 					回味怡暢
 				</div>
 				<div id='q4' ref='q4' className='btn row-d'>
-					• 果梅系 •
+					• 熟瓜系 •
 					<br />
 					入口爽冽
 					<br />

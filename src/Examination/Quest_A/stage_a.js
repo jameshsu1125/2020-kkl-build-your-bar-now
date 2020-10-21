@@ -76,6 +76,7 @@ export default class stage_a extends React.Component {
 					$(this).clearQueue();
 					$(this).stop();
 					this.y = this.oy;
+					this.r = this.or;
 					this.tran(true);
 				},
 			},
@@ -132,6 +133,7 @@ export default class stage_a extends React.Component {
 					$(this).clearQueue();
 					$(this).stop();
 					this.y = this.oy;
+					this.r = this.or;
 					this.tran(true);
 				},
 			},

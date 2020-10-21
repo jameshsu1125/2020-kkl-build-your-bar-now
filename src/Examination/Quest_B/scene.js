@@ -55,7 +55,6 @@ export default class scene extends React.Component {
 				this.mouseup = () => {
 					this.isPress = false;
 				};
-
 				root.props.TouchEvent.add('touch', (e) => {
 					this.touchs.mx = e.clientX || e.targetTouches[0].clientX;
 					this.touchs.is = true;
@@ -101,6 +100,7 @@ export default class scene extends React.Component {
 					else if (this.index > 4) this.index = 1;
 					this.l = this.index * -768;
 					this.tran();
+					this.is = true;
 				},
 				moveTo(is) {
 					$(this).animate(
@@ -110,10 +110,11 @@ export default class scene extends React.Component {
 							step: () => this.tran(),
 							complete: () => {
 								this.tran();
-								this.isView();
-								this.is = true;
 								this.playScene();
 								if (is) this.ined();
+								setTimeout(() => {
+									this.isView();
+								}, 50);
 							},
 							easing: 'easeOutQuart',
 						}

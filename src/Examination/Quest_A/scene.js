@@ -71,7 +71,7 @@ export default class scene extends React.Component {
 				l: 0,
 				time: 1000,
 				index: 0,
-				is: true,
+				is: false,
 				init() {
 					this.c = $(root.refs.imgc);
 					this.tran();
@@ -99,6 +99,7 @@ export default class scene extends React.Component {
 					else if (this.index > 4) this.index = 1;
 					this.l = this.index * -768;
 					this.tran();
+					this.is = true;
 				},
 				moveTo(is) {
 					$(this).animate(
@@ -107,11 +108,12 @@ export default class scene extends React.Component {
 							duration: this.time,
 							step: () => this.tran(),
 							complete: () => {
-								this.tran();
 								this.isView();
-								this.is = true;
 								this.playScene();
 								if (is) this.ined();
+								setTimeout(() => {
+									this.isView();
+								}, 50);
 							},
 							easing: 'easeOutQuart',
 						}

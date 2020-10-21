@@ -88,6 +88,8 @@ export default class scene extends React.Component {
 					this.moveTo(true);
 				},
 				moveTo(is) {
+					if (this.index > 4) this.index = 1;
+					else if (this.index < 1) this.index = 4;
 					this.playScene();
 					setTimeout(() => {
 						this.is = true;

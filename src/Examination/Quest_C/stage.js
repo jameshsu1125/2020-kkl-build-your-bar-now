@@ -35,12 +35,13 @@ export default class stage extends React.Component {
 					'-moz-transform': `rotate(${this.r}deg) scale(${this.s})`,
 					'-o-transform': `rotate(${this.r}deg) scale(${this.s})`,
 					'-ms-transform': `rotate(${this.r}deg) scale(${this.s})`,
+					'z-index': Math.round(this.index),
 					left: this.x,
 					top: this.y,
-					'z-index': Math.round(this.index),
-					filter: `brightness(${this.o})`,
-					'-webkit-filter': `brightness(${this.o})`,
-					'-moz-filter': `brightness(${this.o})`,
+					opacity: this.o,
+					// filter: `brightness(${this.o})`,
+					// '-webkit-filter': `brightness(${this.o})`,
+					// '-moz-filter': `brightness(${this.o})`,
 				});
 			},
 			getCss(i) {
@@ -54,6 +55,8 @@ export default class stage extends React.Component {
 					case 1:
 						return { x: -207, y: 0, s: 0.75, r: 21, index: 2, o: 0.4 };
 					case 2:
+						return { x: -456, y: -100, s: 0.55, r: 21, index: 1, o: 0.4 };
+					default:
 						return { x: -456, y: -100, s: 0.55, r: 21, index: 1, o: 0.4 };
 				}
 			},

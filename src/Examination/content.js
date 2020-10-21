@@ -36,7 +36,7 @@ export default class content extends React.Component {
 	loader_remove() {
 		this.setState({ loading: false });
 		this.setState({ question: 'A' }, () => {
-			//this.setState({ question: 'Result' }, () => {
+			//this.setState({ question: 'C' }, () => {
 			if (this.refs.question.in) this.refs.question.in();
 		});
 	}
@@ -59,6 +59,8 @@ export default class content extends React.Component {
 	q1_ready() {
 		this.refs.submit.in();
 		this.refs.level.in();
+		this.refs.submit.show();
+		this.refs.level.show();
 	}
 
 	load_loaded(n) {
@@ -150,13 +152,14 @@ export default class content extends React.Component {
 			}
 		});
 
-		console.log(this.data);
+		//console.log(this.data);
 		this.refs.level.push();
 	}
 
 	level_back() {
 		let q = ['A', 'B', 'C', 'D'],
 			index = q.findIndex((e) => e == this.state.question);
+		this.refs.submit.blank();
 		this.setState({ question: q[index - 1] }, () => {
 			this.refs.question.in();
 		});

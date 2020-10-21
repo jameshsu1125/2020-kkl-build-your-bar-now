@@ -13,8 +13,9 @@ export default class submit extends React.Component {
 		this.tr = {
 			b: -110,
 			time: 500,
-			is: true,
+			is: false,
 			color: parseInt('ff', 16),
+			s: 1,
 			init() {
 				this.c = $(root.refs.main);
 				this.btn = $(root.refs.btn);
@@ -34,6 +35,29 @@ export default class submit extends React.Component {
 						easing: 'easeOutQuart',
 					}
 				);
+			},
+			blank() {
+				$(this).animate(
+					{ s: 0.8 },
+					{
+						duration: 50,
+						step: () => this.tran3(),
+						complete: () => {
+							this.tran3();
+							this.hide();
+						},
+						easing: 'easeOutQuart',
+					}
+				);
+			},
+			tran3() {
+				this.btn.css({
+					transform: `scale(${this.s})`,
+					'-webkit-transform': `scale(${this.s})`,
+					'-moz-transform': `scale(${this.s})`,
+					'-o-transform': `scale(${this.s})`,
+					'-ms-transform': `scale(${this.s})`,
+				});
 			},
 			in() {
 				$(this)
@@ -55,7 +79,7 @@ export default class submit extends React.Component {
 				root.props.TouchEvent.add('submit_btn', () => {
 					if (!this.is) return;
 					this.is = false;
-					this.hide();
+					this.blank();
 					root.props.click();
 				});
 			},
@@ -80,6 +104,7 @@ export default class submit extends React.Component {
 				$(this).animate(
 					{
 						color: parseInt('ff', 16),
+						s: 1,
 					},
 					{
 						duration: this.time,
@@ -98,9 +123,21 @@ export default class submit extends React.Component {
 				this.btn.css({
 					color: '#' + c + c + c,
 					border: `solid #${c + c + c} 2px`,
+					transform: `scale(${this.s})`,
+					'-webkit-transform': `scale(${this.s})`,
+					'-moz-transform': `scale(${this.s})`,
+					'-o-transform': `scale(${this.s})`,
+					'-ms-transform': `scale(${this.s})`,
 				});
 			},
 		};
+	}
+
+	blank() {
+		if (!this.tr.is) true;
+		this.tr.is = false;
+
+		this.tr.blank();
 	}
 
 	out() {

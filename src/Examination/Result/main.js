@@ -41,18 +41,127 @@ export default class result extends React.Component {
 			r = Math.floor(Math.random() * d.length);
 
 		this.bottle = d[r];
+
+		this.tr = {
+			init() {
+				this.frame.init();
+				this.lig_a.init();
+				this.lig_b.init();
+			},
+			in() {
+				$(root.refs.main).animate({ opacity: 1 }, 500, 'easeOutQuart');
+				root.refs.bar.in();
+				this.frame.in();
+				this.lig_a.in();
+				this.lig_b.in();
+			},
+			lig_b: {
+				o: 0,
+				x: 100,
+				time: 5000,
+				prob: 0.7,
+				init() {
+					this.c = $(root.refs.lig_b);
+					this.tran();
+				},
+				in() {
+					$(this).animate(
+						{ o: 1, x: 274 },
+						{
+							duration: this.time,
+							step: () => this.tran(),
+							complete: () => {
+								this.tran();
+								this.in();
+							},
+							easing: 'easeOutQuart',
+						}
+					);
+				},
+				tran() {
+					this.c.css({
+						opacity: Math.random() > this.prob ? 0.5 + Math.random() * 0.5 : this.o,
+						left: this.x,
+					});
+				},
+			},
+			lig_a: {
+				o: 0,
+				x: 300,
+				time: 5000,
+				prob: 0.7,
+				init() {
+					this.c = $(root.refs.lig_a);
+					this.tran();
+				},
+				in() {
+					$(this).animate(
+						{ o: 1, x: 136 },
+						{
+							duration: this.time,
+							step: () => this.tran(),
+							complete: () => {
+								this.tran();
+								this.in();
+							},
+							easing: 'easeOutQuart',
+						}
+					);
+				},
+				tran() {
+					this.c.css({
+						opacity: Math.random() > this.prob ? 0.5 + Math.random() * 0.5 : this.o,
+						left: this.x,
+					});
+				},
+			},
+			frame: {
+				t: -150,
+				time: 800,
+				delay: 0,
+				o: 0,
+				init() {
+					this.c = $(root.refs.frame);
+					this.tran();
+				},
+				in() {
+					$(this)
+						.delay(this.delay)
+						.animate(
+							{ t: -15, o: 1 },
+							{
+								duration: this.time,
+								step: () => this.tran(),
+								complete: () => this.tran(),
+								easing: 'easeOutBack',
+							}
+						);
+				},
+				tran() {
+					this.c.css({
+						'margin-top': this.t + 'px',
+						opacity: this.o,
+					});
+				},
+			},
+		};
 	}
 
-	componentDidMount() {}
-
-	in() {}
+	componentDidMount() {
+		this.tr.init();
+		$(this.refs.main).waitForImages({
+			finished: () => this.tr.in(),
+			each: (e) => {},
+			waitForAll: true,
+		});
+	}
 
 	render() {
 		return (
-			<div id='result'>
-				<div className='container'>
-					<Bar data={this.props.data[0]} />
-					<div className='frame'>
+			<div ref='main' id='result'>
+				<div ref='container' className='container'>
+					<Bar ref='bar' data={this.props.data[0]} />
+					<div ref='frame' className='frame'>
 						<div className='title'>{this.headline[this.props.data[0]] + ' 酒館'}</div>
 						<div className='body'>
 							恭喜你的金酒世界酒館開幕了！
@@ -76,8 +185,8 @@ export default class result extends React.Component {
 								style={{ background: `url(${this.bottle.img})` }}
 							></div>
 						</div>
-						<div className='light p1'></div>
-						<div className='light p2'></div>
+						<div ref='lig_a' className='light p1'></div>
+						<div ref='lig_b' className='light p2'></div>
 					</div>
 				</div>
 			</div>

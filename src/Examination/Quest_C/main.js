@@ -1,373 +1,35 @@
 import React from 'react';
 import './main.less';
 
+import Scene from './scene';
+import Btns from './btns';
+import { Loader, lastComponent } from './../../Component/_config';
+
 import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
-
-import { Loader, lastComponent } from './../../Component/_config';
 
 export default class main extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
 		this.tr = {
-			mx: 0,
-			is: true,
-			offsetX: 50,
-			isPress: false,
 			init: function () {
 				this.head.init();
 				this.headline.init();
 				this.headtxt.init();
-				this.q1.init();
-				this.q2.init();
-				this.q3.init();
-				this.q4.init();
-				this.imgs.init();
-				this.arl.init();
-				this.arr.init();
-				this.sider.init();
+				this.slider.init();
 			},
 			in: function () {
 				root.refs.main.style.display = 'block';
 				this.head.in();
 				this.headline.in();
 				this.headtxt.in();
-				this.q1.in();
-				this.q2.in();
-				this.q3.in();
-				this.q4.in();
-				this.imgs.in();
 			},
 			out: function (cb) {
 				$(root.refs.main).animate({ opacity: 0 }, 500, 'easeOutQuart', () => {
 					cb();
 				});
-			},
-			evt: function () {
-				this.touchMove = (e) => {
-					if (e.cancelable) if (!e.defaultPrevented) e.preventDefault();
-					if (!this.is) return;
-					if (!this.isPress) return;
-					let x = e.clientX || e.targetTouches[0].clientX;
-					let dx = this.mx - x;
-					if (dx > this.offsetX) {
-						this.is = true;
-						this.switcher.next();
-					} else if (dx < 0 - this.offsetX) {
-						this.is = true;
-						this.switcher.prev();
-					}
-				};
-				this.mouseup = () => {
-					this.isPress = false;
-				};
-				root.props.TouchEvent.add('q1', () => {
-					this.switcher.switch(1);
-				});
-				root.props.TouchEvent.add('q2', () => {
-					this.switcher.switch(2);
-				});
-				root.props.TouchEvent.add('q3', () => {
-					this.switcher.switch(3);
-				});
-				root.props.TouchEvent.add('q4', () => {
-					this.switcher.switch(4);
-				});
-				root.props.TouchEvent.add('q4', () => {
-					this.switcher.switch(4);
-				});
-				root.props.TouchEvent.add('arr', () => {
-					this.switcher.next();
-				});
-				root.props.TouchEvent.add('arl', () => {
-					this.switcher.prev();
-				});
-				root.props.TouchEvent.add('touch', (e) => {
-					this.isPress = true;
-					this.mx = e.clientX || e.targetTouches[0].clientX;
-				});
-				root.refs.touch.addEventListener('touchmove', this.touchMove, {
-					passive: false,
-					capture: false,
-				});
-				document.addEventListener('touchend', this.mouseup);
-				root.refs.touch.addEventListener('mousemove', this.touchMove);
-				document.addEventListener('mouseup', this.mouseup);
-			},
-			arl: {
-				o: 0,
-				time: 500,
-				init() {
-					this.c = $(root.refs.arl);
-					this.tran();
-				},
-				in() {
-					$(this).animate(
-						{ o: 1 },
-						{
-							duration: this.time,
-							step: () => this.tran(),
-							complete: () => this.tran(),
-							easing: 'easeOutQuart',
-						}
-					);
-				},
-				tran() {
-					this.c.css({
-						opacity: this.o,
-					});
-				},
-			},
-			arr: {
-				o: 0,
-				time: 500,
-				init() {
-					this.c = $(root.refs.arr);
-					this.tran();
-				},
-				in() {
-					$(this).animate(
-						{ o: 1 },
-						{
-							duration: this.time,
-							step: () => this.tran(),
-							complete: () => this.tran(),
-							easing: 'easeOutQuart',
-						}
-					);
-				},
-				tran() {
-					this.c.css({
-						opacity: this.o,
-					});
-				},
-			},
-			switcher: {
-				index: 0,
-				switch(v) {
-					if (!root.tr.sider.is) return;
-					for (var i = 1; i <= 4; i++) root.tr['q' + i].c.removeClass('on');
-					if (v === false) {
-						this.index = 1;
-						root.tr.sider.ready();
-						root.tr.q1.c.addClass('on');
-					} else {
-						this.index = v;
-						let index = this.index;
-						if (v == 5) index = 1;
-						else if (v == 0) index = 4;
-						root.tr['q' + index].c.addClass('on');
-						root.tr.sider.moveTo(v);
-					}
-				},
-				next: function () {
-					if (!root.tr.sider.is) return;
-					let index = this.index + 1;
-					this.switch(index);
-				},
-				prev: function () {
-					if (!root.tr.sider.is) return;
-					let index = this.index - 1;
-					this.switch(index);
-				},
-			},
-			sider: {
-				time: 1000,
-				l: 0,
-				is: true,
-				init() {
-					this.c = $(root.refs.imgc);
-				},
-				moveTo(v) {
-					if (!this.is) return;
-					this.is = false;
-					this.index = v;
-					$(this).stop();
-					$(this).clearQueue();
-					$(this).animate(
-						{ l: 0 - v * 768 },
-						{
-							duration: this.time,
-							step: () => this.tran(),
-							complete: () => {
-								this.tran();
-								this.sync();
-								this.is = true;
-							},
-							easing: 'easeOutQuart',
-						}
-					);
-				},
-				sync() {
-					if (root.tr.switcher.index == 5) {
-						root.tr.switcher.index = 1;
-						this.l = 0 - root.tr.switcher.index * 768;
-						this.tran();
-					} else if (root.tr.switcher.index == 0) {
-						root.tr.switcher.index = 4;
-						this.l = 0 - root.tr.switcher.index * 768;
-						this.tran();
-					}
-				},
-				tran() {
-					this.c.css('left', this.l + 'px');
-				},
-				ready() {
-					var c = $(this.c.children('div')[0]);
-					setTimeout(() => {
-						c.css('opacity', 1);
-					}, 1000);
-					this.moveTo(1);
-					root.tr.arr.in();
-					root.tr.arl.in();
-					root.tr.evt();
-				},
-			},
-			imgs: {
-				o: 1,
-				delay: 2000,
-				time: 1000,
-				init() {
-					this.c = $(root.refs.img);
-					this.tran();
-				},
-				in() {
-					$(this)
-						.delay(this.delay)
-						.animate(
-							{ o: 1 },
-							{
-								duration: this.time,
-								step: () => this.tran(),
-								complete: () => this.tran(),
-								easing: 'easeOutQuart',
-							}
-						);
-				},
-				tran() {
-					this.c.css('opacity', this.o);
-				},
-			},
-			q4: {
-				o: 0,
-				delay: 3600,
-				time: 1000,
-				init() {
-					this.c = $(root.refs.q4);
-					this.tran();
-				},
-				in() {
-					$(this)
-						.delay(this.delay)
-						.queue(function () {
-							this.c.css('display', 'block');
-							$(this).dequeue();
-						})
-						.animate(
-							{ o: 1 },
-							{
-								duration: this.time,
-								step: () => this.tran(),
-								complete: () => {
-									this.tran();
-									root.tr.switcher.switch(false);
-								},
-								easing: 'easeOutQuart',
-							}
-						);
-				},
-				tran() {
-					this.c.css('opacity', this.o);
-				},
-			},
-			q3: {
-				o: 0,
-				delay: 3400,
-				time: 1000,
-				init() {
-					this.c = $(root.refs.q3);
-					this.tran();
-				},
-				in() {
-					$(this)
-						.delay(this.delay)
-						.queue(function () {
-							this.c.css('display', 'block');
-							$(this).dequeue();
-						})
-						.animate(
-							{ o: 1 },
-							{
-								duration: this.time,
-								step: () => this.tran(),
-								complete: () => this.tran(),
-								easing: 'easeOutQuart',
-							}
-						);
-				},
-				tran() {
-					this.c.css('opacity', this.o);
-				},
-			},
-			q2: {
-				o: 0,
-				delay: 3200,
-				time: 1000,
-				init() {
-					this.c = $(root.refs.q2);
-					this.tran();
-				},
-				in() {
-					$(this)
-						.delay(this.delay)
-						.queue(function () {
-							this.c.css('display', 'block');
-							$(this).dequeue();
-						})
-						.animate(
-							{ o: 1 },
-							{
-								duration: this.time,
-								step: () => this.tran(),
-								complete: () => this.tran(),
-								easing: 'easeOutQuart',
-							}
-						);
-				},
-				tran() {
-					this.c.css('opacity', this.o);
-				},
-			},
-			q1: {
-				o: 0,
-				delay: 3000,
-				time: 1000,
-				init() {
-					this.c = $(root.refs.q1);
-					this.tran();
-				},
-				in() {
-					$(this)
-						.delay(this.delay)
-						.queue(function () {
-							this.c.css('display', 'block');
-							$(this).dequeue();
-						})
-						.animate(
-							{ o: 1 },
-							{
-								duration: this.time,
-								step: () => this.tran(),
-								complete: () => this.tran(),
-								easing: 'easeOutQuart',
-							}
-						);
-				},
-				tran() {
-					this.c.css('opacity', this.o);
-				},
 			},
 			head: {
 				y: -240,
@@ -384,7 +46,10 @@ export default class main extends React.Component {
 							{
 								duration: this.time,
 								step: () => this.tran(),
-								complete: () => this.tran(),
+								complete: () => {
+									this.tran();
+									root.refs.btns.in();
+								},
 								easing: 'easeOutQuart',
 							}
 						);
@@ -476,6 +141,22 @@ export default class main extends React.Component {
 					});
 				},
 			},
+			slider: {
+				init() {
+					this.btns = root.refs.btns;
+					this.scene = root.refs.scene;
+				},
+				to(v) {
+					if (v === undefined) {
+						this.btns.goto(1);
+					} else {
+						if (this.scene.is()) {
+							this.btns.goto(v);
+							this.scene.goto(v);
+						}
+					}
+				},
+			},
 		};
 	}
 
@@ -490,20 +171,6 @@ export default class main extends React.Component {
 		$(this.refs.main).waitForImages(p);
 	}
 
-	componentWillUnmount() {
-		this.props.TouchEvent.remove('q1');
-		this.props.TouchEvent.remove('q2');
-		this.props.TouchEvent.remove('q3');
-		this.props.TouchEvent.remove('q4');
-		this.props.TouchEvent.remove('arr');
-		this.props.TouchEvent.remove('arl');
-		this.props.TouchEvent.remove('touch');
-		this.refs.touch.removeEventListener('touchmove', this.tr.touchMove);
-		this.refs.touch.removeEventListener('mousemove', this.tr.touchMove);
-		document.removeEventListener('mouseup', this.tr.mouseup);
-		document.removeEventListener('touchend', this.tr.mouseup);
-	}
-
 	in() {
 		this.tr.in();
 	}
@@ -513,10 +180,29 @@ export default class main extends React.Component {
 	}
 
 	getSelect() {
-		let index = this.tr.switcher.index;
+		let index = this.refs.btns.getIndex();
 		if (index == 5) index = 1;
 		else if (index == 0) index = 4;
 		return index - 1;
+	}
+
+	btns_click(id) {
+		this.tr.slider.to(parseInt(id.slice(1)));
+	}
+
+	btns_ready() {
+		this.tr.slider.to();
+		this.refs.scene.in();
+		if (this.props.ready) this.props.ready();
+		else this.props.ined();
+	}
+
+	scene_next() {
+		this.refs.btns.next();
+	}
+
+	scene_prev() {
+		this.refs.btns.prev();
 	}
 
 	render() {
@@ -528,47 +214,18 @@ export default class main extends React.Component {
 						你最常在什麼時刻飲酒呢?
 					</div>
 				</div>
-				<div id='q1' ref='q1' className='btn row-a'>
-					• 特殊節日 •
-					<br />
-					每一個心中小日
-					<br />
-					都是小酌的節日
-				</div>
-				<div id='q2' ref='q2' className='btn row-b'>
-					• 獨自品味 •
-					<br />
-					每一口人生甘醇
-					<br />
-					只有自己才懂得
-				</div>
-				<div id='q3' ref='q3' className='btn row-c'>
-					• 社交應酬 •
-					<br />
-					江湖鬥陣走，把酒交心
-					<br />
-					面子裡子都要有
-				</div>
-				<div id='q4' ref='q4' className='btn row-d'>
-					• 親友相聚 •
-					<br />
-					把酒交心
-					<br />
-					唯與真心
-				</div>
-				<div ref='img' className='image'>
-					<div ref='imgc' className='img-c'>
-						<div className='img_dc'></div>
-						<div className='img_a'></div>
-						<div className='img_b'></div>
-						<div className='img_c'></div>
-						<div className='img_d'></div>
-						<div className='img_ac'></div>
-					</div>
-					<div ref='touch' id='touch' className='touch'></div>
-					<div id='arl' ref='arl' className='arr l'></div>
-					<div id='arr' ref='arr' className='arr r'></div>
-				</div>
+				<Btns
+					ref='btns'
+					TouchEvent={this.props.TouchEvent}
+					click={this.btns_click.bind(this)}
+					ready={this.btns_ready.bind(this)}
+				/>
+				<Scene
+					ref='scene'
+					TouchEvent={this.props.TouchEvent}
+					prev={this.scene_prev.bind(this)}
+					next={this.scene_next.bind(this)}
+				/>
 			</div>
 		);
 	}

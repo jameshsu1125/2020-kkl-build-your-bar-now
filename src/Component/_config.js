@@ -2,7 +2,7 @@ module.exports = {
 	lastComponent: 'D',
 	Loader: {
 		index: 0,
-		max: 52,
+		max: 86,
 		mode: 'debug',
 		each() {
 			this.index++;

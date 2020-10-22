@@ -3,9 +3,13 @@
 	"version": "1.0.0",
 	"description": "-----------",
 	"main": "index.js",
+	"homepage": "https://jameshsu1125.github.io/build-your-bar-now/",
 	"scripts": {
 		"start": "export NODE_ENV=development && webpack-dev-server --config ./webpack.config.js --mode development",
-		"op": "export NODE_ENV=production && webpack -p"
+		"op": "export NODE_ENV=production && webpack -p",
+		"build": "webpack-dev-server --config ./webpack.config.js",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
 	},
 	"private": "true",
 	"browserslist": {

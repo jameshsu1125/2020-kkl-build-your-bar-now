@@ -3,6 +3,8 @@ import './content.less';
 import $ from 'jquery';
 require('jquery-easing');
 
+import Hash from 'UNIT/Get';
+
 export default class content extends React.Component {
 	constructor(props) {
 		super(props);
@@ -39,10 +41,10 @@ export default class content extends React.Component {
 			},
 			evt() {
 				root.props.TouchEvent.add('menu_0', () => {
-					window.location.href = '#';
+					window.location.href = Hash.root();
 				});
 				root.props.TouchEvent.add('menu_1', () => {
-					window.location.href = '#';
+					window.location.href = Hash.root();
 				});
 				root.props.TouchEvent.add('menu_2', () => {
 					window.location.href = '#';
@@ -57,7 +59,7 @@ export default class content extends React.Component {
 					window.location.href = '#';
 				});
 				root.props.TouchEvent.add('menu_6', () => {
-					window.location.href = '#';
+					window.location.href = './terms.html';
 				});
 				this.resize();
 				$(window).resize(() => this.resize());

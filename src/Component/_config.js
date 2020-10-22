@@ -13,4 +13,16 @@ module.exports = {
 			console.log('loaded');
 		},
 	},
+	UGC_share: {
+		update(base64) {
+			return new Promise((res, rej) => {
+				setTimeout(() => {
+					res('https://google.com');
+				}, 10);
+			});
+		},
+		share(url) {
+			window.location.href = './signin.html';
+		},
+	},
 };

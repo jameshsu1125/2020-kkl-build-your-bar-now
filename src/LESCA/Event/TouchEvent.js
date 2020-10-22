@@ -1,6 +1,6 @@
 module.exports = {
 	db: {},
-	init() {
+	init(is) {
 		this.fn = function (e) {
 			if (e.cancelable)
 				if (!e.defaultPrevented)
@@ -12,14 +12,18 @@ module.exports = {
 						e.preventDefault();
 			this.get(e);
 		}.bind(this);
-		this.m = this.device();
-		if (this.m == 'mobile') {
-			document.addEventListener('touchstart', this.fn, {
-				passive: false,
-				capture: false,
-			});
-		} else {
+		if (is) {
 			document.addEventListener('mousedown', this.fn);
+		} else {
+			this.m = this.device();
+			if (this.m == 'mobile') {
+				document.addEventListener('touchstart', this.fn, {
+					passive: false,
+					capture: false,
+				});
+			} else {
+				document.addEventListener('mousedown', this.fn);
+			}
 		}
 	},
 	device() {

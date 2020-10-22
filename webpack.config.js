@@ -9,6 +9,8 @@ module.exports = {
 	entry: {
 		index: './src/index.js',
 		examination: './src/examination.js',
+		terms: './src/terms.js',
+		signin: './src/signin.js',
 	},
 	module: {
 		rules: [

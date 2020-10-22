@@ -17,6 +17,9 @@ export default class level extends React.Component {
 				this.btn = $(root.refs.btn);
 				this.tran();
 				this.set();
+				root.props.TouchEvent.add('level_back', () => {
+					root.back();
+				});
 			},
 			set() {
 				for (var i = 0; i < 4; i++) $(root.refs['c' + i]).removeClass('on');
@@ -117,6 +120,7 @@ export default class level extends React.Component {
 	back() {
 		if (this.tr.index <= 0) return;
 		else if (this.tr.index > 3) return;
+
 		this.tr.click();
 	}
 
@@ -130,7 +134,7 @@ export default class level extends React.Component {
 				<div ref='c2' class='circle'></div>
 				<div class='dashed'></div>
 				<div ref='c3' class='circle'></div>
-				<div ref='btn' onClick={this.back.bind(this)} class='back hide'>
+				<div id='level_back' ref='btn' class='back hide'>
 					BACK
 				</div>
 			</div>

@@ -19,6 +19,7 @@ export default class submit extends React.Component {
 			init() {
 				this.c = $(root.refs.main);
 				this.btn = $(root.refs.btn);
+				if (window.innerWidth > 768) this.btn.addClass('hover');
 				this.tran();
 				this.tran2();
 			},
@@ -87,7 +88,7 @@ export default class submit extends React.Component {
 				this.c.css('bottom', this.b + 'px');
 			},
 			hide() {
-				this.btn.removeClass('hover');
+				if (window.innerWidth > 768) this.btn.removeClass('hover');
 				$(this).animate(
 					{
 						color: parseInt('66', 16),
@@ -111,7 +112,7 @@ export default class submit extends React.Component {
 						step: () => this.tran2(),
 						complete: () => {
 							this.tran2();
-							this.btn.addClass('hover');
+							if (window.innerWidth > 768) this.btn.addClass('hover');
 							this.is = true;
 						},
 						easing: 'easeOutQuart',
@@ -163,7 +164,7 @@ export default class submit extends React.Component {
 	render() {
 		return (
 			<div id='submit' ref='main'>
-				<div ref='btn' id='submit_btn' className='submit_btn hover'>
+				<div ref='btn' id='submit_btn' className='submit_btn'>
 					送出
 				</div>
 			</div>

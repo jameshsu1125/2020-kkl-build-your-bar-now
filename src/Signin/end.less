@@ -1,0 +1,61 @@
+#end {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+
+	.fb {
+		position: absolute;
+		width: 400px;
+		height: 160px;
+		margin-left: -400px/2;
+		margin-top: 50px;
+		text-align: center;
+		cursor: pointer;
+
+		color: #d1ad5a;
+		font-size: 1.3em;
+		font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, Helvetica, sans-serif;
+		text-decoration: underline;
+
+		.ico {
+			@img: './img/fb.png';
+			background-image: url(@img);
+			width: image-width(@img) * 0.8;
+			height: image-height(@img) * 0.8;
+			display: inline-block;
+			background-size: 100%;
+			margin: 0px 0px 10px;
+		}
+	}
+
+	.square {
+		position: relative;
+		width: 620px;
+		height: 260px;
+		border: solid #fff 2px;
+		margin-top: (-260px/2)-50px;
+		margin-left: -620px/2;
+
+		color: #fff;
+		font-size: 1.9em;
+
+		.close {
+			position: absolute;
+			@img: './img/close.png';
+			background-image: url(@img);
+			width: image-width(@img) * 2;
+			height: image-height(@img) * 2;
+			right: 0px;
+			top: 0px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 40%;
+			transition: 0.1s;
+			cursor: pointer;
+
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+	}
+}

@@ -6,16 +6,18 @@ import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
 
+import Canvas from './canvas';
+
 export default class result extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
 		this.headline = ['暮色潮間', '金夜風華', '草木森活', '日間工寓'];
 		this.wording = [
-			'每個特別日子都用心慶祝的你',
+			'珍惜每個美好當下的你',
 			'喜歡私房小酌的你',
 			'在江湖走跳的你',
-			'喜歡跟親友交心 的你',
+			'喜歡跟親友交心的你',
 		];
 		this.imgs = [
 			[
@@ -37,7 +39,9 @@ export default class result extends React.Component {
 			],
 		];
 
-		let d = this.imgs[this.props.data[0]],
+		console.log(this.props.data);
+
+		let d = this.imgs[this.props.data[1]],
 			r = Math.floor(Math.random() * d.length);
 
 		this.bottle = d[r];
@@ -54,6 +58,15 @@ export default class result extends React.Component {
 				this.frame.in();
 				this.lig_a.in();
 				this.lig_b.in();
+			},
+			evt() {
+				root.props.TouchEvent.add('result_share', () => {
+					root.refs.canvas.share();
+				});
+				root.props.TouchEvent.add('result_replay', () => {
+					window.location.reload();
+				});
+				root.props.TouchEvent.add('result_info', () => {});
 			},
 			lig_b: {
 				o: 0,
@@ -132,7 +145,10 @@ export default class result extends React.Component {
 							{
 								duration: this.time,
 								step: () => this.tran(),
-								complete: () => this.tran(),
+								complete: () => {
+									this.tran();
+									root.tr.evt();
+								},
 								easing: 'easeOutBack',
 							}
 						);
@@ -174,9 +190,15 @@ export default class result extends React.Component {
 							<span>你最熱門的酒款：{this.bottle.name}</span>
 						</div>
 						<div className='btns'>
-							<div className='btn'>分享抽獎</div>
-							<div className='btn'>再開一家</div>
-							<div className='btn'>更了解熱門酒款</div>
+							<div id='result_share' className='btn'>
+								分享抽獎
+							</div>
+							<div id='result_replay' className='btn'>
+								再開一家
+							</div>
+							<div id='result_info' className='btn'>
+								更了解熱門酒款
+							</div>
 						</div>
 						<div className='wine'>
 							<div className='sl'></div>
@@ -189,6 +211,13 @@ export default class result extends React.Component {
 						<div ref='lig_b' className='light p2'></div>
 					</div>
 				</div>
+				<Canvas
+					ref='canvas'
+					data={this.props.data}
+					headline={this.headline}
+					wording={this.wording}
+					bottle={this.bottle}
+				/>
 			</div>
 		);
 	}

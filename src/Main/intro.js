@@ -12,7 +12,7 @@ export default class intro extends React.Component {
 		this.tr = {
 			init: function () {
 				this.txt = $(root.refs.txt);
-				this.txt.css('line-height', '1000px');
+				this.txt.css('line-height', '100em');
 				this.btn.init();
 				this.arr0.init();
 				this.arr1.init();
@@ -22,7 +22,7 @@ export default class intro extends React.Component {
 				this.arr1.in();
 				$(root.refs.txt).animate(
 					{
-						'line-height': '28px',
+						'line-height': '1.7em',
 					},
 					1000,
 					'easeOutExpo',

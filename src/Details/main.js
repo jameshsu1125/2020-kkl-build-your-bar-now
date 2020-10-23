@@ -17,7 +17,7 @@ export default class main extends React.Component {
 
 	render() {
 		return (
-			<div id='signin'>
+			<div id='details'>
 				<Background />
 				<Content ref='content' TouchEvent={TouchEvent} />
 				<Warning />

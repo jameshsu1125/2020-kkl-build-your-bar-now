@@ -11,6 +11,7 @@ module.exports = {
 		examination: './src/examination.js',
 		terms: './src/terms.js',
 		signin: './src/signin.js',
+		details: './src/details.js',
 	},
 	module: {
 		rules: [

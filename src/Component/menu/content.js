@@ -47,7 +47,7 @@ export default class content extends React.Component {
 					window.location.href = Hash.root();
 				});
 				root.props.TouchEvent.add('menu_2', () => {
-					window.location.href = '#';
+					window.location.href = './details.html';
 				});
 				root.props.TouchEvent.add('menu_3', () => {
 					window.location.href = '#';

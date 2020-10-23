@@ -1,0 +1,274 @@
+@r: 0.8;
+@b: 0.7;
+#quadrant {
+	float: left;
+	width: 100%;
+	height: 100%;
+	margin-top: 112px;
+	overflow-y: scroll;
+
+	.context {
+		float: left;
+		width: 768px;
+		height: auto;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding-bottom: 150px;
+
+		.pd {
+			padding: 0px 34px;
+			margin-top: 100px;
+		}
+
+		.row {
+			float: left;
+			width: 100%;
+			height: auto;
+
+			.col {
+				position: relative;
+				float: left;
+				width: calc(~'100% - 122px');
+				height: 100%;
+				padding: 17px 25px 100px;
+				border: solid 2px #d1ad5a;
+
+				hr {
+					border-top: 2px solid #d1ad5a;
+					border-style: solid;
+				}
+
+				@img: './img/corner.png';
+				.corner {
+					position: absolute;
+					background-image: url(@img);
+					width: image-width(@img);
+					height: image-height(@img);
+
+					&:nth-child(1) {
+						left: 15px;
+						top: 15px;
+					}
+
+					&:nth-child(2) {
+						right: 15px;
+						top: 15px;
+						transform: scale(-1, 1);
+					}
+
+					&:nth-child(3) {
+						left: 15px;
+						bottom: 15px;
+						transform: scale(1, -1);
+					}
+
+					&:nth-child(4) {
+						right: 15px;
+						bottom: 15px;
+						transform: scale(-1, -1);
+					}
+				}
+			}
+
+			@title: './img/h-g.png';
+			.headline {
+				position: relative;
+				float: left;
+				width: image-width(@title);
+				height: image-height(@title);
+
+				.bg {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					background-image: url(@title);
+					top: 0;
+					left: 0;
+				}
+
+				.txt {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					color: #fff;
+					line-height: image-height(@title);
+					font-size: 1.9em;
+				}
+			}
+
+			.quad-c {
+				position: relative;
+				width: 100%;
+				height: 700px;
+
+				.q-c {
+					position: absolute;
+					width: 600px;
+					height: 600px;
+					left: 109px;
+					top: 0px;
+
+					.quad {
+						position: relative;
+						float: left;
+						width: 290px;
+						height: 290px;
+						margin: 3px;
+						border-radius: 6px;
+						overflow: hidden;
+
+						.h {
+							float: left;
+							width: 100%;
+							height: 43px;
+							font-size: 1.7em;
+							color: #fff;
+							line-height: 43px;
+							background-image: url('./img/ico.png');
+							background-repeat: no-repeat;
+							background-position: right 6px center;
+							cursor: pointer;
+						}
+
+						.c {
+							position: relative;
+							float: left;
+							width: 100%;
+							height: 290px - 43px;
+							text-align: center;
+
+							& > div {
+								background-size: 100%;
+								height: 95%;
+								background-repeat: no-repeat;
+								background-position: bottom;
+								margin: 0 15px;
+								cursor: pointer;
+							}
+
+							.A0 {
+								@img: './img/bottle/A0.png';
+								background-image: url(@img);
+								width: image-width(@img) * @b;
+								display: inline-block;
+							}
+
+							.A1 {
+								@img: './img/bottle/A1.png';
+								background-image: url(@img);
+								width: image-width(@img) * @b;
+								display: inline-block;
+							}
+
+							.A2 {
+								@img: './img/bottle/A2.png';
+								background-image: url(@img);
+								width: image-width(@img) * @b;
+								display: inline-block;
+							}
+
+							.B0 {
+								@img: './img/bottle/B0.png';
+								background-image: url(@img);
+								width: image-width(@img) * @b;
+								display: inline-block;
+							}
+
+							.B1 {
+								@img: './img/bottle/B1.png';
+								background-image: url(@img);
+								width: image-width(@img) * @b;
+								display: inline-block;
+							}
+
+							.C0 {
+								@img: './img/bottle/C0.png';
+								background-image: url(@img);
+								width: image-width(@img) * @b;
+								display: inline-block;
+							}
+
+							.C1 {
+								@img: './img/bottle/C1.png';
+								background-image: url(@img);
+								width: image-width(@img) * @b;
+								display: inline-block;
+							}
+
+							.D0 {
+								@img: './img/bottle/D0.png';
+								background-image: url(@img);
+								width: image-width(@img) * @b;
+								display: inline-block;
+							}
+
+							.D1 {
+								@img: './img/bottle/D1.png';
+								background-image: url(@img);
+								width: image-width(@img) * @b;
+								display: inline-block;
+							}
+						}
+
+						&:nth-child(1) {
+							border: solid 2px #007ef4;
+
+							.h {
+								background-color: #007ef4;
+							}
+						}
+
+						&:nth-child(2) {
+							border: solid 2px #8a04d0;
+
+							.h {
+								background-color: #8a04d0;
+							}
+						}
+
+						&:nth-child(3) {
+							border: solid 2px #1ebd7f;
+
+							.h {
+								background-color: #1ebd7f;
+							}
+						}
+
+						&:nth-child(4) {
+							border: solid 2px #f4b304;
+
+							.h {
+								background-color: #f4b304;
+							}
+						}
+					}
+				}
+
+				.b-l {
+					position: absolute;
+					@img: './img/b-l.png';
+					background-image: url(@img);
+					width: image-width(@img);
+					height: image-height(@img);
+					left: 28px;
+					top: -2px;
+				}
+
+				.b-b {
+					position: absolute;
+					@img: './img/b-b.png';
+					background-image: url(@img);
+					width: image-width(@img);
+					height: image-height(@img);
+					left: 115px;
+					top: 606px;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 768px) {
+	#quadrant {
+		margin-top: 134px;
+	}
+}

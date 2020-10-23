@@ -30,7 +30,7 @@ module.exports = {
 				use: [
 					{
 						loader: 'file-loader',
-						options: { name: '_img/[path][name].[ext]', context: 'src' },
+						options: { name: 'img/[path][name].[ext]', context: 'src' },
 					},
 				],
 			},
@@ -39,7 +39,7 @@ module.exports = {
 				use: [
 					{
 						loader: 'file-loader',
-						options: { name: '_vid/[path][name].[ext]', context: 'src' },
+						options: { name: 'vid/[path][name].[ext]', context: 'src' },
 					},
 				],
 			},
@@ -48,7 +48,7 @@ module.exports = {
 				use: [
 					{
 						loader: 'file-loader',
-						options: { name: '_aud/[path][name].[ext]', context: 'src' },
+						options: { name: 'aud/[path][name].[ext]', context: 'src' },
 					},
 				],
 			},
@@ -57,7 +57,7 @@ module.exports = {
 				use: [
 					{
 						loader: 'file-loader',
-						options: { name: '_font/[path][name].[ext]', context: 'src' },
+						options: { name: 'font/[path][name].[ext]', context: 'src' },
 					},
 				],
 			},
@@ -75,7 +75,7 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist/'),
-		filename: '_js/[name].min.js',
+		filename: 'js/[name].min.js',
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),

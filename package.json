@@ -1,7 +1,7 @@
 {
-	"name": "-----------",
+	"name": "build-your-bar-now",
 	"version": "1.0.0",
-	"description": "-----------",
+	"description": "金門高粱酒的世界餐桌的行銷活動網站-打造你的本命酒館",
 	"main": "index.js",
 	"homepage": "https://jameshsu1125.github.io/build-your-bar-now/",
 	"scripts": {
@@ -32,6 +32,7 @@
 		"babel-plugin-react-html-attrs": "^2.1.0",
 		"css-loader": "^2.0.1",
 		"file-loader": "^2.0.0",
+		"gh-pages": "^3.1.0",
 		"less": "^3.9.0",
 		"less-loader": "^4.1.0",
 		"postcss": "^7.0.7",
@@ -51,7 +52,6 @@
 		"clipboard": "^2.0.4",
 		"dat.gui": "^0.7.3",
 		"exif-js": "^2.3.0",
-		"gh-pages": "^3.1.0",
 		"google-maps": "^4.3.2",
 		"howler": "^2.1.1",
 		"jquery": "^3.5.0",

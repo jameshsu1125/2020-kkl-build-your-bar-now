@@ -18,10 +18,7 @@ export default class dialog extends React.Component {
 			},
 			in() {
 				$(this).animate(
-					{
-						o: 1,
-						y: 19,
-					},
+					{ o: 1, y: 19 },
 					{
 						duration: this.time,
 						step: () => this.tran(),
@@ -32,10 +29,7 @@ export default class dialog extends React.Component {
 			},
 			out() {
 				$(this).animate(
-					{
-						o: 0,
-						y: 0,
-					},
+					{ o: 0, y: 0 },
 					{
 						duration: this.time,
 						step: () => this.tran(),

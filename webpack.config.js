@@ -12,6 +12,7 @@ module.exports = {
 		terms: './src/terms.js',
 		signin: './src/signin.js',
 		details: './src/details.js',
+		commercialFilm: './src/CommercialFilm.js',
 	},
 	module: {
 		rules: [

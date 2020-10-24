@@ -1,0 +1,39 @@
+#cf {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+
+	.video {
+		position: absolute;
+		width: 640px;
+		height: 380px;
+		margin-left: -640px/2;
+		margin-top: -380px/2;
+		background-color: #000;
+		color: #fff;
+		text-align: center;
+		padding: 150px 100px;
+		box-sizing: border-box;
+		line-height: 1.4em;
+		font-size: 2em;
+		font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, Helvetica, sans-serif;
+
+		.close {
+			position: absolute;
+			@img: './../Signin/img/close.png';
+			background-image: url(@img);
+			width: image-width(@img) * 2;
+			height: image-height(@img) * 2;
+			right: 20px;
+			top: 20px;
+			background-position: center;
+			background-repeat: no-repeat;
+			transition: 0.1s;
+			cursor: pointer;
+
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+	}
+}

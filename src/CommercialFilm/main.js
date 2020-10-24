@@ -1,5 +1,5 @@
 import React from 'react';
-import './main.less';
+import './../Main/main.less';
 
 import Background from './../Examination/background';
 import Warning from './../Component/warning/warning';
@@ -15,7 +15,7 @@ export default class main extends React.Component {
 
 	render() {
 		return (
-			<div id='terms'>
+			<div id='main'>
 				<Background />
 				<Content TouchEvent={TouchEvent} />
 				<Warning />

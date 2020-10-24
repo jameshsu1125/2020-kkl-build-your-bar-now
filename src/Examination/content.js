@@ -151,8 +151,6 @@ export default class content extends React.Component {
 				this.refs.submit.out();
 			}
 		});
-
-		//console.log(this.data);
 		this.refs.level.push();
 	}
 

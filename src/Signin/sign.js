@@ -10,11 +10,8 @@ const swal = require('sweetalert');
 export default class sign extends React.Component {
 	constructor(props) {
 		super(props);
-
 		const root = this;
-
 		this.isPrivacy = false;
-
 		this.tr = {
 			y: -800,
 			time: 1000,
@@ -70,7 +67,6 @@ export default class sign extends React.Component {
 	}
 
 	submit_click() {
-		//check
 		let n = this.refs.name.value,
 			t = this.refs.tel.value,
 			m = this.refs.email.value;

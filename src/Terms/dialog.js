@@ -60,14 +60,6 @@ export default class dialog extends React.Component {
 		this.tr.init();
 	}
 
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
-	}
-
 	back() {
 		this.tr.out();
 	}

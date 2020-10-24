@@ -8,7 +8,6 @@ export default class loading extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
-		//script
 		this.tr = {
 			t: -50,
 			o: 0,
@@ -174,10 +173,6 @@ export default class loading extends React.Component {
 			each: (e) => {},
 			waitForAll: true,
 		});
-	}
-
-	componentDidUpdate() {
-		//script
 	}
 
 	componentWillUnmount() {

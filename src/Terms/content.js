@@ -8,8 +8,6 @@ import Dialog from './dialog';
 export default class content extends React.Component {
 	constructor(props) {
 		super(props);
-		const root = this;
-		//script
 	}
 
 	render() {

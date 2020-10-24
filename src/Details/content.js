@@ -9,9 +9,7 @@ import Quadrant from './quadrant';
 export default class content extends React.Component {
 	constructor(props) {
 		super(props);
-		const root = this;
 		this.state = { quadrant: true };
-		//script
 	}
 
 	append_quadrant() {

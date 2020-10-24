@@ -10,8 +10,6 @@ import Content from './content';
 export default class main extends React.Component {
 	constructor(props) {
 		super(props);
-		const root = this;
-		//script
 		TouchEvent.init(true);
 	}
 

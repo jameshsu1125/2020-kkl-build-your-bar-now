@@ -9,7 +9,6 @@ export default class submit extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
-		//script
 		this.tr = {
 			b: -110,
 			time: 500,

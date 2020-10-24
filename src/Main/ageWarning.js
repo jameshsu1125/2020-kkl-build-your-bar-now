@@ -59,14 +59,6 @@ export default class ageWarning extends React.Component {
 		this.tr.init();
 	}
 
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
-	}
-
 	render() {
 		return (
 			<div ref='main' id='ageWarning'>

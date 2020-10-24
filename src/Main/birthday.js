@@ -79,10 +79,6 @@ export default class birthday extends React.Component {
 		this.tr.init();
 	}
 
-	componentWillUnmount() {
-		//script
-	}
-
 	append_years() {
 		let n = new Date(),
 			y = n.getFullYear(),

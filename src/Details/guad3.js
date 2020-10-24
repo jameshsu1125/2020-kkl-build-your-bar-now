@@ -10,8 +10,9 @@ export default class guad3 extends React.Component {
 		super(props);
 		const root = this;
 		this.tr = {
-			y: window.innerHeight,
-			time: 500,
+			y: -200,
+			o: 0,
+			time: 800,
 			init() {
 				this.c = $(root.refs.guad);
 				this.tran();
@@ -24,7 +25,7 @@ export default class guad3 extends React.Component {
 			},
 			out() {
 				$(this).animate(
-					{ y: window.innerHeight },
+					{ y: -200, o: 0 },
 					{
 						duration: this.time,
 						step: () => this.tran(),
@@ -32,13 +33,13 @@ export default class guad3 extends React.Component {
 							this.tran();
 							root.props.destory();
 						},
-						easing: 'easeInQuart',
+						easing: 'easeInBack',
 					}
 				);
 			},
 			in() {
 				$(this).animate(
-					{ y: 0 },
+					{ y: 0, o: 1 },
 					{
 						duration: this.time,
 						step: () => this.tran(),
@@ -51,7 +52,10 @@ export default class guad3 extends React.Component {
 				);
 			},
 			tran() {
-				this.c.css('top', this.y + 'px');
+				this.c.css({
+					top: this.y + 'px',
+					opacity: this.o,
+				});
 			},
 		};
 	}

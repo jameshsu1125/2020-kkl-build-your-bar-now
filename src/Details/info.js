@@ -8,6 +8,10 @@ export default class info extends React.Component {
 		this.title = this.props.title;
 	}
 
+	getOffset() {
+		return $(this.refs.main).offset().top;
+	}
+
 	render() {
 		return (
 			<div ref='main' className='info'>

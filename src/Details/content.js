@@ -23,8 +23,10 @@ export default class content extends React.Component {
 		return (
 			<div id='content'>
 				{this.append_quadrant()}
-				<Menu TouchEvent={this.props.TouchEvent} />
-				<Logo TouchEvent={this.props.TouchEvent} />
+				<div class='sticky'>
+					<Menu TouchEvent={this.props.TouchEvent} />
+					<Logo TouchEvent={this.props.TouchEvent} />
+				</div>
 			</div>
 		);
 	}

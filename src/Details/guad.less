@@ -1,0 +1,97 @@
+@r: 0.8;
+#guad {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: scale(@r);
+	transform-origin: left center;
+
+	.guad-c {
+		position: relative;
+		box-sizing: border-box;
+
+		.close {
+			position: absolute;
+			@img: './../Signin/img/close.png';
+			background-image: url(@img);
+			width: image-width(@img) * 2;
+			height: image-height(@img) * 2;
+			right: 36px;
+			top: 30px;
+			background-position: center;
+			background-repeat: no-repeat;
+			transition: 0.1s;
+			cursor: pointer;
+
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+
+		.table {
+			display: inline-table;
+			padding: 60px 0px;
+			box-sizing: border-box;
+
+			.table-row {
+				float: left;
+				width: 100%;
+				display: table-row;
+				margin: 5px 0px;
+
+				.l {
+					width: 10%;
+				}
+
+				.r {
+					width: 90%;
+				}
+
+				.table-cell {
+					float: left;
+					display: table-cell;
+					font-size: 1.7em;
+					color: #fff;
+					text-align: left;
+					line-height: 40px;
+					letter-spacing: 2px;
+					font-family: 'PingFangSC-Regular', 'Microsoft JhengHei', Helvetica,
+						sans-serif;
+
+					.circle {
+						width: 40px;
+						height: 40px;
+						border-radius: 50%;
+						color: #fff;
+						border: solid #fff 2px;
+						font-size: 1em;
+						line-height: 40px;
+						text-align: center;
+					}
+				}
+			}
+		}
+
+		.title {
+			padding: 50px 0px 12px;
+			box-sizing: border-box;
+			font-size: 1.8em;
+			color: #fff;
+			background-image: url('./img/crow.png');
+			background-repeat: no-repeat;
+			background-position: center 20px;
+			border-bottom: solid #fff 2px;
+		}
+
+		.row {
+			float: left;
+			width: 100%;
+		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	#guad {
+		transform: scale(1);
+	}
+}

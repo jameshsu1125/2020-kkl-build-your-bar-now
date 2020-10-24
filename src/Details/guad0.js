@@ -10,7 +10,7 @@ export default class guad0 extends React.Component {
 		super(props);
 		const root = this;
 		this.tr = {
-			y: window.innerHeight * 0.6,
+			y: window.innerHeight,
 			time: 500,
 			init() {
 				this.c = $(root.refs.guad);

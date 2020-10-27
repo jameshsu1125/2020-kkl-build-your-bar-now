@@ -147,16 +147,13 @@ export default class sign extends React.Component {
 		};
 
 		let data = { ...d, ...this.dat };
-		console.log(data);
 
 		Submit.send(data).then(
 			(e) => {
-				console.log(e);
 				if (e.status == 200) this.tr.out();
 				else swal({ title: e.errors[0] });
 			},
 			(e) => {
-				console.log(e);
 				swal({ title: e.responseJSON.errors[0] });
 			}
 		);

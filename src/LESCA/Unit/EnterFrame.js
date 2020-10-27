@@ -1,6 +1,6 @@
 module.exports = {
 	go: true,
-	init: function (fn = function () {}) {
+	init(fn = () => {}) {
 		window.requestAnimFrame = (function () {
 			return (
 				window.requestAnimationFrame ||
@@ -15,10 +15,10 @@ module.exports = {
 		this.fn = fn;
 		this.frame();
 	},
-	destroy: function () {
+	destroy() {
 		window.requestAnimFrame = function () {};
 	},
-	add: function (fn) {
+	add(fn) {
 		this.fn = (function (_super) {
 			return function () {
 				fn(arguments[0]);
@@ -26,7 +26,7 @@ module.exports = {
 			};
 		})(this.fn);
 	},
-	frame: function () {
+	frame() {
 		var t = this.getTime();
 		this.fn(t);
 		if (this.go) window.requestAnimFrame(this.frame.bind(this));

@@ -1,5 +1,5 @@
 module.exports = {
-	get: function (t) {
+	get(t) {
 		var hash = window.location.href.split('?');
 		if (hash.length < 2) {
 			return false;
@@ -14,8 +14,7 @@ module.exports = {
 			return false;
 		}
 	},
-
-	remove: function (v) {
+	remove(v) {
 		var hash = window.location.href.split('?');
 		if (hash.length < 2) {
 			return false;
@@ -39,14 +38,12 @@ module.exports = {
 			return window.location.origin + window.location.pathname + (op == '' ? '' : '?') + op;
 		}
 	},
-
-	removeAndGo: function (e) {
+	removeAndGo(e) {
 		var u = this.remove(e);
 		if (!u) return;
 		if (u != location.href) window.location.href = u;
 	},
-
-	root: function () {
+	root() {
 		var u = window.location.origin + window.location.pathname;
 		if (u.indexOf('.') > 0) {
 			var p = u.split('/');
@@ -59,8 +56,7 @@ module.exports = {
 		}
 		return u;
 	},
-
-	file: function () {
+	file() {
 		var u = window.location.pathname;
 		if (u.indexOf('.') > 0) {
 			var p = u.split('/');

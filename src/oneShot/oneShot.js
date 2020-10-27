@@ -61,9 +61,7 @@ export default class oneShot extends React.Component {
 							</div>
 							<div className='block'>
 								<div className='head'>活動內容</div>
-								<div className='desc'>
-									只要參與「打造你的本命酒館」活動，將結果畫面上傳個人FB社群，即可現場免費獲得金門高粱酒Shot一杯
-								</div>
+								<div className='desc'>只要參與「打造你的本命酒館」活動，將結果畫面上傳個人FB社群，即可現場免費獲得金門高粱酒Shot一杯</div>
 							</div>
 							<div className='block'>
 								<div className='head'>活動時間</div>
@@ -95,9 +93,7 @@ export default class oneShot extends React.Component {
 							</div>
 							<div className='block'>
 								<div className='head'>店家介紹</div>
-								<div className='desc'>
-									Commons運用各種復古老件鋪陳帶有英倫風的摩登質感，佐著皮革沙發的慵懶氛圍，讓人沉浸其中不知不覺就多喝了二杯。
-								</div>
+								<div className='desc'>Commons運用各種復古老件鋪陳帶有英倫風的摩登質感，佐著皮革沙發的慵懶氛圍，讓人沉浸其中不知不覺就多喝了二杯。</div>
 							</div>
 							<div className='block'>
 								<div className='head'>金門高粱酒獨家特調</div>
@@ -116,11 +112,9 @@ export default class oneShot extends React.Component {
 							<div className='block'>
 								<div className='head'>店家介紹</div>
 								<div className='desc'>
-									坐落於信義區台北101對面的 MQ [ Marquee Taipei
-									]是重視品味與娛樂的饕客們最佳聚所。
+									坐落於信義區台北101對面的 MQ [ Marquee Taipei ]是重視品味與娛樂的饕客們最佳聚所。
 									<br />
-									挑高六米的空間感與店家重金打造出雅緻寬敞、低調奢華的 Lounge Bar
-									令人流連忘返。
+									挑高六米的空間感與店家重金打造出雅緻寬敞、低調奢華的 Lounge Bar 令人流連忘返。
 									<br />
 									駐店台灣冠軍調酒團隊各個身懷絕技，均曾代表台灣出席國際賽事，獨家調酒只為與眾不同的妳特製。
 								</div>

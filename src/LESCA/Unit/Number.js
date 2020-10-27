@@ -1,5 +1,5 @@
 module.exports = {
-	Pad: function (str, max) {
+	Pad(str, max) {
 		var s = '';
 		for (var i = 0; i < max; i++) s += '0';
 		return String(s + str).slice(max * -1);

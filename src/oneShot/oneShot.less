@@ -1,0 +1,177 @@
+#oneShot {
+	float: left;
+	width: 100%;
+	height: 100%;
+	margin-top: 112px;
+	overflow-y: scroll;
+
+	.context {
+		float: left;
+		width: 768px;
+		height: auto;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding-bottom: 150px;
+
+		.pd {
+			padding: 0px 34px;
+			margin-top: 40px;
+		}
+
+		.row {
+			float: left;
+			width: 100%;
+			height: auto;
+			color: #fff;
+			box-sizing: border-box;
+
+			.col {
+				position: relative;
+				float: left;
+				width: 100%;
+				text-align: center;
+				border: solid 2px #d1ad5a;
+				padding: 0px 22px;
+				box-sizing: border-box;
+
+				.block {
+					float: left;
+					width: 100%;
+					border-bottom: solid 1px #d1ad5a;
+					padding: 22px;
+					box-sizing: border-box;
+
+					&:last-child {
+						border-bottom: solid 1px transparent;
+					}
+
+					.img-5 {
+						float: left;
+						@img: './img/img-5.jpg';
+						background-image: url(@img);
+						width: image-width(@img);
+						height: image-height(@img);
+					}
+
+					.img-4 {
+						float: left;
+						@img: './img/img-4.jpg';
+						background-image: url(@img);
+						width: image-width(@img);
+						height: image-height(@img);
+						margin-right: 20px;
+					}
+
+					.img-3 {
+						float: left;
+						@img: './img/img-3.jpg';
+						background-image: url(@img);
+						width: image-width(@img);
+						height: image-height(@img);
+						margin: 15px 0px;
+					}
+
+					.img-2 {
+						float: left;
+						@img: './img/img-2.jpg';
+						background-image: url(@img);
+						width: image-width(@img);
+						height: image-height(@img);
+					}
+
+					.img-1 {
+						float: left;
+						@img: './img/img-1.jpg';
+						background-image: url(@img);
+						width: image-width(@img);
+						height: image-height(@img);
+						margin-right: 20px;
+					}
+
+					.img {
+						position: relative;
+						float: left;
+						width: 100%;
+						margin: 15px 0px;
+					}
+
+					.img-0 {
+						float: left;
+						width: 100%;
+						height: 254px;
+						background: rgba(0, 0, 0, 0) url('./img/img-0.jpg') no-repeat scroll
+							center center / cover;
+						margin: 10px 0px 20px;
+					}
+
+					.commons {
+						float: left;
+						width: 100%;
+						color: #d1ad5a;
+						font-size: 2em;
+						padding: 10px 0px;
+					}
+
+					.crow {
+						float: left;
+						width: 100%;
+						background: no-repeat url('./img/crow.png') center center;
+						height: 26px;
+					}
+
+					.head {
+						float: left;
+						width: 100%;
+						text-align: left;
+						color: #d1ad5a;
+						font-size: 1.2em;
+					}
+
+					.desc {
+						float: left;
+						width: 100%;
+						text-align: justify;
+						font-size: 1.2em;
+						font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, Helvetica,
+							sans-serif;
+						margin-top: 5px;
+
+						ul {
+							padding-inline-start: 20px;
+							margin-block-start: 0em;
+							margin-block-end: 0em;
+						}
+					}
+				}
+
+				@title: './img/h-g.png';
+				.headline {
+					position: relative;
+					width: image-width(@title);
+					height: image-height(@title);
+					margin-bottom: 0px;
+					display: inline-block;
+
+					.bg {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						background-image: url(@title);
+						top: 0;
+						left: 0;
+					}
+
+					.txt {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						color: #fff;
+						line-height: image-height(@title);
+						font-size: 1.9em;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}

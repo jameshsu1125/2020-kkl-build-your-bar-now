@@ -102,6 +102,7 @@ export default class quadrant extends React.Component {
 		}
 
 		$(window).on('hashchange', () => {
+			if(!window.location.hash) return;
 			let hash = decodeURIComponent(window.location.hash).slice(1);
 			for (var i in this.refs) {
 				let t = this.refs[i];

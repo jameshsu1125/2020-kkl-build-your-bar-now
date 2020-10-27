@@ -40,9 +40,6 @@ export default class content extends React.Component {
 				this.switch(0);
 			},
 			evt() {
-				root.props.TouchEvent.add('menu_0', () => {
-					window.location.href = Hash.root();
-				});
 				root.props.TouchEvent.add('menu_1', () => {
 					window.location.href = Hash.root();
 				});
@@ -50,13 +47,13 @@ export default class content extends React.Component {
 					window.location.href = './details.html';
 				});
 				root.props.TouchEvent.add('menu_3', () => {
-					window.location.href = '#';
+					window.location.href = './restaurant.html';
 				});
 				root.props.TouchEvent.add('menu_4', () => {
 					window.location.href = './commercialFilm.html';
 				});
 				root.props.TouchEvent.add('menu_5', () => {
-					window.location.href = '#';
+					window.location.href = './oneShot.html';
 				});
 				root.props.TouchEvent.add('menu_6', () => {
 					window.location.href = './terms.html';
@@ -87,9 +84,6 @@ export default class content extends React.Component {
 			<div ref='main' id='menu-content'>
 				<div className='c'>
 					<div ref='container' className='menu-container'>
-						<div id='menu_0' className='btn'>
-							活動說明
-						</div>
 						<div id='menu_1' className='btn'>
 							開始遊戲
 						</div>

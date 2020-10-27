@@ -12,7 +12,9 @@ module.exports = {
 		terms: './src/terms.js',
 		signin: './src/signin.js',
 		details: './src/details.js',
-		commercialFilm: './src/CommercialFilm.js',
+		commercialFilm: './src/commercialFilm.js',
+		restaurant: './src/restaurant.js',
+		oneShot: './src/oneShot.js',
 	},
 	module: {
 		rules: [

@@ -15,15 +15,16 @@ export default class warning extends React.Component {
 			resize: function () {
 				let dw = window.innerWidth > 768 ? window.innerWidth : 768,
 					w = dw / (root.text.length - 1),
-					h;
-				if (window.innerWidth > 768) h = 3;
-				else h = 3.6;
+					l = 15,
+					g;
+				if (window.innerWidth > 768) g = 5;
+				else g = 6.2;
 				$(root.refs.main)
 					.children('div')
 					.each(function (i) {
 						$(this).css({
 							'line-height': window.innerHeight * 0.1 + 'px',
-							left: i * w - h * i + 'px',
+							left: l + i * w - g * i + 'px',
 						});
 					});
 			},

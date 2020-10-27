@@ -1,0 +1,228 @@
+#restaurant-container {
+	float: left;
+	width: 100%;
+	height: 100%;
+	margin-top: 112px;
+	overflow-y: scroll;
+
+	.context {
+		float: left;
+		width: 768px;
+		height: auto;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding-bottom: 150px;
+
+		.pd {
+			padding: 0px 34px;
+			margin-top: 40px;
+		}
+
+		.row {
+			float: left;
+			width: 100%;
+			height: auto;
+			color: #fff;
+
+			.col {
+				position: relative;
+				float: left;
+				width: 100%;
+				padding: 0 64px;
+				box-sizing: border-box;
+				text-align: justify;
+				font-size: 1.6em;
+				margin: 20px 0px;
+
+				& > .text {
+					padding: 0px 15px;
+					font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, Helvetica,
+						sans-serif;
+				}
+
+				.border {
+					position: relative;
+					float: left;
+					width: 100%;
+					height: auto;
+					border-top: solid 2px #d1ad5a;
+					border-bottom: solid 2px #d1ad5a;
+					text-align: center;
+					margin-top: -2px;
+
+					.body {
+						width: 488px;
+						display: inline-block;
+
+						& > div {
+							margin: 10px 0px;
+						}
+
+						.ps {
+							font-size: 0.6em;
+							text-align: left;
+							font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, Helvetica,
+								sans-serif;
+							letter-spacing: 1px;
+						}
+
+						.head {
+							float: left;
+							width: 100%;
+							color: #d1ad5a;
+							font-size: 1.6em;
+						}
+
+						.menu {
+							float: left;
+							width: 100%;
+							color: #d1ad5a;
+							font-size: 1.3em;
+							font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, Helvetica,
+								sans-serif;
+							line-height: 50px;
+
+							.hr {
+								width: 100%;
+								height: 2px;
+								background: linear-gradient(
+									90deg,
+									rgba(209, 173, 90, 0) 10%,
+									rgba(209, 173, 90, 1) 40%,
+									rgba(209, 173, 90, 1) 60%,
+									rgba(209, 173, 90, 0) 90%
+								);
+							}
+						}
+
+						.img-c0 {
+							float: left;
+							@img: './img/img-0-0.jpg';
+							background-image: url(@img);
+							width: image-width(@img);
+							height: image-height(@img);
+						}
+
+						.img-c1 {
+							float: left;
+							@img: './img/img-1-0.jpg';
+							background-image: url(@img);
+							width: image-width(@img);
+							height: image-height(@img);
+						}
+
+						.img-c2 {
+							float: left;
+							@img: './img/img-2-0.jpg';
+							background-image: url(@img);
+							width: image-width(@img);
+							height: image-height(@img);
+						}
+
+						.img-c3 {
+							float: left;
+							@img: './img/img-3-0.jpg';
+							background-image: url(@img);
+							width: image-width(@img);
+							height: image-height(@img);
+						}
+
+						.table-0 {
+							float: left;
+							@img: './img/table-0.png';
+							background-image: url(@img);
+							width: image-width(@img);
+							height: image-height(@img);
+							margin-bottom: 60px;
+						}
+
+						.table-1 {
+							float: left;
+							@img: './img/table-1.png';
+							background-image: url(@img);
+							width: image-width(@img);
+							height: image-height(@img);
+							margin-bottom: 60px;
+						}
+
+						.table-2 {
+							float: left;
+							@img: './img/table-2.png';
+							background-image: url(@img);
+							width: image-width(@img);
+							height: image-height(@img);
+							margin-bottom: 60px;
+						}
+
+						.table-3 {
+							float: left;
+							@img: './img/table-3.png';
+							background-image: url(@img);
+							width: image-width(@img);
+							height: image-height(@img);
+							margin-bottom: 60px;
+						}
+					}
+
+					@img: './../Details/img/corner.png';
+					.corner {
+						position: absolute;
+						background-image: url(@img);
+						width: image-width(@img);
+						height: image-height(@img);
+
+						&:nth-child(1) {
+							left: 15px;
+							top: 15px;
+						}
+
+						&:nth-child(2) {
+							right: 15px;
+							top: 15px;
+							transform: scale(-1, 1);
+						}
+
+						&:nth-child(3) {
+							left: 15px;
+							bottom: 15px;
+							transform: scale(1, -1);
+						}
+
+						&:nth-child(4) {
+							right: 15px;
+							bottom: 15px;
+							transform: scale(-1, -1);
+						}
+					}
+				}
+			}
+
+			@title: './img/h-g.png';
+			.headline {
+				position: relative;
+				float: left;
+				width: image-width(@title);
+				height: image-height(@title);
+				margin-bottom: -38px;
+
+				.bg {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					background-image: url(@title);
+					top: 0;
+					left: 0;
+				}
+
+				.txt {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					color: #fff;
+					line-height: image-height(@title);
+					font-size: 1.9em;
+				}
+			}
+		}
+	}
+}

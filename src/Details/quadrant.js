@@ -31,8 +31,8 @@ export default class quadrant extends React.Component {
 		};
 		const root = this;
 		this.tr = {
-			y: 1000,
-			o: 1,
+			y: 500,
+			o: 0,
 			time: 1000,
 			init() {
 				this.c = $(root.refs.main);
@@ -43,7 +43,7 @@ export default class quadrant extends React.Component {
 				setTimeout(() => {
 					$('html, body').scrollTop(0);
 					$(this).animate(
-						{ y: 112 },
+						{ y: 112, o: 1 },
 						{
 							duration: this.time,
 							step: () => this.tran(),
@@ -56,6 +56,7 @@ export default class quadrant extends React.Component {
 			tran() {
 				this.c.css({
 					'margin-top': this.y + 'px',
+					opacity: this.o,
 				});
 			},
 			tran2() {
@@ -102,7 +103,7 @@ export default class quadrant extends React.Component {
 		}
 
 		$(window).on('hashchange', () => {
-			if(!window.location.hash) return;
+			if (!window.location.hash) return;
 			let hash = decodeURIComponent(window.location.hash).slice(1);
 			for (var i in this.refs) {
 				let t = this.refs[i];

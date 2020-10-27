@@ -14,16 +14,18 @@ export default class restaurant extends React.Component {
 		super(props);
 		const root = this;
 		this.tr = {
-			y: 1000,
+			y: 500,
+			o: 0,
 			time: 1000,
 			init() {
 				this.c = $(root.refs.main);
+				this.tran();
 			},
 			in() {
 				setTimeout(() => {
 					$('html, body').scrollTop(0);
 					$(this).animate(
-						{ y: 112 },
+						{ y: 112, o: 1 },
 						{
 							duration: this.time,
 							step: () => this.tran(),
@@ -36,6 +38,7 @@ export default class restaurant extends React.Component {
 			tran() {
 				this.c.css({
 					'margin-top': this.y + 'px',
+					opacity: this.o,
 				});
 			},
 		};

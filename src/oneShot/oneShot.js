@@ -10,16 +10,18 @@ export default class oneShot extends React.Component {
 		super(props);
 		const root = this;
 		this.tr = {
-			y: 1000,
+			y: 500,
+			o: 0,
 			time: 1000,
 			init() {
 				this.c = $(root.refs.main);
+				this.tran();
 			},
 			in() {
 				setTimeout(() => {
 					$('html, body').scrollTop(0);
 					$(this).animate(
-						{ y: 112 },
+						{ y: 112, o: 1 },
 						{
 							duration: this.time,
 							step: () => this.tran(),
@@ -32,6 +34,7 @@ export default class oneShot extends React.Component {
 			tran() {
 				this.c.css({
 					'margin-top': this.y + 'px',
+					opacity: this.o,
 				});
 			},
 		};
@@ -48,7 +51,7 @@ export default class oneShot extends React.Component {
 
 	render() {
 		return (
-			<div id='oneShot'>
+			<div ref='main' id='oneShot'>
 				<div ref='ctx' className='context'>
 					<div className='row pd'>
 						<div className='col'>

@@ -2,6 +2,8 @@ import React from 'react';
 import $ from 'jquery';
 
 import { UGC_share } from './../../Component/_config';
+import { share } from 'SOCIAL/Facebook';
+import Hash from 'UNIT/Get';
 
 export default class canvas extends React.Component {
 	constructor(props) {
@@ -152,18 +154,17 @@ export default class canvas extends React.Component {
 		this.tr.init();
 	}
 
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
-	}
-
 	share() {
-		let base64 = this.refs.canvas.toDataURL('image/jpg', 1.0);
-		UGC_share.update(base64).then((url) => {
-			UGC_share.share(url);
+		let base64 = this.refs.canvas.toDataURL('image/jpg', 1.0).split('base64,')[1];
+		UGC_share.update(base64).then((e) => {
+			let u = e.share_url,
+				uid = e.share_id;
+			if (u) {
+				let dat = [...this.tr.data, uid],
+					get = btoa(dat),
+					rul = Hash.root() + `signin.html?dat=${get}}`;
+				share({ id: '417583752566301', url: u, redirect_uri: rul });
+			}
 		});
 	}
 

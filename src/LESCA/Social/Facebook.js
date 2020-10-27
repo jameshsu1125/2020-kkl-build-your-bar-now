@@ -1,5 +1,8 @@
 module.exports = {
-	init: function (uid, { v = 'v8.0', callback = function () {}, onStatus = function () {} }) {
+	init: function (
+		uid,
+		{ v = 'v8.0', callback = function () {}, onStatus = function () {} }
+	) {
 		const self = this;
 		this.id = uid;
 		this.is = false;
@@ -46,10 +49,14 @@ module.exports = {
 
 				case 'connected':
 					//console.log('已認證/已登入');
-					FB.api('/me', { fields: 'id,name,email,picture.width(800).height(800)' }, (response) => {
-						this.response = response;
-						this.onStatus(response);
-					});
+					FB.api(
+						'/me',
+						{ fields: 'id,name,email,picture.width(800).height(800)' },
+						(response) => {
+							this.response = response;
+							this.onStatus(response);
+						}
+					);
 					break;
 
 				case 'unknown':
@@ -67,8 +74,10 @@ module.exports = {
 			console.log(e);
 		});
 	},
-	share: function ({ hashtag, redirect_uri, callback, url }) {
-		var u = `https://www.facebook.com/dialog/share?app_id=${this.id}&href=${encodeURIComponent(url)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
+	share: function ({ id, redirect_uri, url }) {
+		var u = `https://www.facebook.com/dialog/share?app_id=${id}&href=${encodeURIComponent(
+			url
+		)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
 		window.location.href = u;
 	},
 	click: function () {
@@ -92,11 +101,15 @@ module.exports = {
 		}
 		FB.login((response) => {
 			if (response.authResponse) {
-				FB.api('/me', { fields: 'id,name,email,picture.width(800).height(800)' }, (response2) => {
-					this.response = response2;
-					this.onStatus(response);
-					cb(response);
-				});
+				FB.api(
+					'/me',
+					{ fields: 'id,name,email,picture.width(800).height(800)' },
+					(response2) => {
+						this.response = response2;
+						this.onStatus(response);
+						cb(response);
+					}
+				);
 			} else {
 				console.log('User cancelled login or did not fully authorize.');
 			}

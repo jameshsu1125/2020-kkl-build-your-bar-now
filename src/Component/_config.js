@@ -1,3 +1,5 @@
+const { ajax } = require('jquery');
+const $ = require('jquery');
 module.exports = {
 	lastComponent: 'D',
 	Loader: {
@@ -14,15 +16,31 @@ module.exports = {
 		},
 	},
 	UGC_share: {
+		url: 'https://kkl.uxer-lab.com/api/share',
 		update(base64) {
 			return new Promise((res, rej) => {
-				setTimeout(() => {
-					res('https://google.com');
-				}, 10);
+				$.post(this.url, base64)
+					.done(function (e) {
+						res(e);
+					})
+					.fail(function (err) {
+						rej(err);
+					});
 			});
 		},
-		share(url) {
-			window.location.href = './signin.html';
+	},
+	Submit: {
+		url: 'https://kkl.uxer-lab.com/api/save',
+		send(data) {
+			return new Promise((res, rej) => {
+				$.post(this.url, data)
+					.done(function (e) {
+						res(e);
+					})
+					.fail(function (err) {
+						rej(err);
+					});
+			});
 		},
 	},
 };

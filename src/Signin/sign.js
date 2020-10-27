@@ -1,10 +1,12 @@
 import React from 'react';
 import './sign.less';
 
+import Hash from 'UNIT/Get';
+import { Submit } from './../Component/_config';
+
 import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
-
 const swal = require('sweetalert');
 
 export default class sign extends React.Component {
@@ -64,6 +66,35 @@ export default class sign extends React.Component {
 			finished: () => this.tr.in(),
 			waitForAll: true,
 		});
+
+		let dat = atob(Hash.get('dat').split('#')[0].split('%')[0]).split(',');
+		this.dat = {
+			question_1: [
+				'我不跟誰走 我帶動潮流',
+				'我不是老派 我愛好經典',
+				'非典型都會人 我與自然共存',
+				'不好奢華享樂 執著簡約樸實',
+			][parseInt(dat[0])],
+			question_2: [
+				`• 穀糧系 • 淡雅清香 尾韻悠長`,
+				`• 果梅系 • 沉香濃郁 圓潤細膩`,
+				`• 花果系 • 甘美綿柔 回味怡暢`,
+				`• 熟瓜系 • 入口爽冽 純甜淨爽`,
+			][parseInt(dat[1])],
+			question_3: [
+				`• 特殊節日 • 每一個心中小日 都是小酌的節日`,
+				`• 獨自品味 • 每一口人生甘醇 只有自己才懂得`,
+				`• 社交應酬 • 江湖鬥陣走，把酒交心 面子裡子都要有`,
+				`• 親友相聚 • 把酒交心 唯與真心`,
+			][parseInt(dat[2])],
+			question_4: [
+				`• 日式料理 • 最鮮的魚貨 味覺與視覺的饗宴`,
+				`• 歐式料理 • 美、食、氛圍 我全部都要`,
+				`• 港式火鍋 • 好湯頭好食材 怎麼下鍋都美味`,
+				`• 創意料理 • 驚喜的菜色 不膩的創意`,
+			][parseInt(dat[3])],
+			share_id: dat[4],
+		};
 	}
 
 	submit_click() {
@@ -93,15 +124,28 @@ export default class sign extends React.Component {
 			return;
 		}
 
-		let data = {
+		let d = {
 			name: n,
-			tel: t,
+			phone: t,
 			email: m,
+			agreed: this.isPrivacy ? '1' : '0',
+			share_id: '',
 		};
 
+		let data = { ...d, ...this.dat };
 		console.log(data);
 
-		this.tr.out();
+		Submit.send(data).then(
+			(e) => {
+				console.log(e);
+				if (e.status == 200) this.tr.out();
+				else swal({ title: e.errors[0] });
+			},
+			(e) => {
+				console.log(e);
+				swal({ title: e.responseJSON.errors[0] });
+			}
+		);
 	}
 
 	box_click() {

@@ -39,7 +39,7 @@ export default class result extends React.Component {
 			],
 		];
 
-		console.log(this.props.data);
+		//console.log(this.props.data);
 
 		let d = this.imgs[this.props.data[1]],
 			r = Math.floor(Math.random() * d.length);

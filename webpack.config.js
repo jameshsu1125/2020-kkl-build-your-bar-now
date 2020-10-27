@@ -74,6 +74,7 @@ module.exports = {
 			DEVICE: path.resolve(__dirname, 'src/LESCA/Device/'),
 			EVENT: path.resolve(__dirname, 'src/LESCA/Event/'),
 			UNIT: path.resolve(__dirname, 'src/LESCA/Unit/'),
+			SOCIAL: path.resolve(__dirname, 'src/LESCA/Social/'),
 		},
 	},
 	output: {
@@ -106,7 +107,7 @@ module.exports = {
 		port: 8080,
 		public: 'localhost:8080',
 		disableHostCheck: true,
-		https: false,
+		https: true,
 	},
 	performance: {
 		hints: false,

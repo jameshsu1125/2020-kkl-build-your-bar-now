@@ -1,7 +1,7 @@
 import React from 'react';
 import './main.less';
 import Bar from './bar';
-
+import Loading from 'UI/Loading';
 import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
@@ -12,6 +12,7 @@ export default class result extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
+		this.state = { loading: false };
 		this.headline = ['暮色潮間', '金夜風華', '草木森活', '日間工寓'];
 		this.wording = [
 			'珍惜每個美好當下的你',
@@ -66,7 +67,9 @@ export default class result extends React.Component {
 				root.props.TouchEvent.add('result_replay', () => {
 					window.location.reload();
 				});
-				root.props.TouchEvent.add('result_info', () => {});
+				root.props.TouchEvent.add('result_info', () => {
+					window.location.href = './details.html';
+				});
 			},
 			lig_b: {
 				o: 0,
@@ -172,6 +175,18 @@ export default class result extends React.Component {
 		});
 	}
 
+	appendLoading() {
+		if (this.state.loading) return <Loading />;
+	}
+
+	addLoading() {
+		this.setState({ loading: true });
+	}
+
+	removeLoading() {
+		this.setState({ loading: false });
+	}
+
 	render() {
 		return (
 			<div ref='main' id='result'>
@@ -217,7 +232,10 @@ export default class result extends React.Component {
 					headline={this.headline}
 					wording={this.wording}
 					bottle={this.bottle}
+					addLoading={this.addLoading.bind(this)}
+					removeLoading={this.removeLoading.bind(this)}
 				/>
+				{this.appendLoading()}
 			</div>
 		);
 	}

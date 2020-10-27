@@ -155,7 +155,10 @@ export default class canvas extends React.Component {
 	}
 
 	share() {
-		let base64 = this.refs.canvas.toDataURL('image/jpg', 1.0).split('base64,')[1];
+		this.props.addLoading();
+		let base64 = {
+			image: this.refs.canvas.toDataURL('png/jpg', 0.5),
+		};
 		UGC_share.update(base64).then((e) => {
 			let u = e.share_url,
 				uid = e.share_id;

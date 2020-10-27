@@ -67,34 +67,48 @@ export default class sign extends React.Component {
 			waitForAll: true,
 		});
 
-		let dat = atob(Hash.get('dat').split('#')[0].split('%')[0]).split(',');
-		this.dat = {
-			question_1: [
-				'我不跟誰走 我帶動潮流',
-				'我不是老派 我愛好經典',
-				'非典型都會人 我與自然共存',
-				'不好奢華享樂 執著簡約樸實',
-			][parseInt(dat[0])],
-			question_2: [
-				`• 穀糧系 • 淡雅清香 尾韻悠長`,
-				`• 果梅系 • 沉香濃郁 圓潤細膩`,
-				`• 花果系 • 甘美綿柔 回味怡暢`,
-				`• 熟瓜系 • 入口爽冽 純甜淨爽`,
-			][parseInt(dat[1])],
-			question_3: [
-				`• 特殊節日 • 每一個心中小日 都是小酌的節日`,
-				`• 獨自品味 • 每一口人生甘醇 只有自己才懂得`,
-				`• 社交應酬 • 江湖鬥陣走，把酒交心 面子裡子都要有`,
-				`• 親友相聚 • 把酒交心 唯與真心`,
-			][parseInt(dat[2])],
-			question_4: [
-				`• 日式料理 • 最鮮的魚貨 味覺與視覺的饗宴`,
-				`• 歐式料理 • 美、食、氛圍 我全部都要`,
-				`• 港式火鍋 • 好湯頭好食材 怎麼下鍋都美味`,
-				`• 創意料理 • 驚喜的菜色 不膩的創意`,
-			][parseInt(dat[3])],
-			share_id: dat[4],
-		};
+		if (!Hash.get('dat')) {
+			this.dataFail();
+			return;
+		}
+
+		try {
+			let dat = atob(Hash.get('dat').split('#')[0].split('%')[0]).split(',');
+			this.dat = {
+				question_1: [
+					'我不跟誰走 我帶動潮流',
+					'我不是老派 我愛好經典',
+					'非典型都會人 我與自然共存',
+					'不好奢華享樂 執著簡約樸實',
+				][parseInt(dat[0])],
+				question_2: [
+					`• 穀糧系 • 淡雅清香 尾韻悠長`,
+					`• 果梅系 • 沉香濃郁 圓潤細膩`,
+					`• 花果系 • 甘美綿柔 回味怡暢`,
+					`• 熟瓜系 • 入口爽冽 純甜淨爽`,
+				][parseInt(dat[1])],
+				question_3: [
+					`• 特殊節日 • 每一個心中小日 都是小酌的節日`,
+					`• 獨自品味 • 每一口人生甘醇 只有自己才懂得`,
+					`• 社交應酬 • 江湖鬥陣走，把酒交心 面子裡子都要有`,
+					`• 親友相聚 • 把酒交心 唯與真心`,
+				][parseInt(dat[2])],
+				question_4: [
+					`• 日式料理 • 最鮮的魚貨 味覺與視覺的饗宴`,
+					`• 歐式料理 • 美、食、氛圍 我全部都要`,
+					`• 港式火鍋 • 好湯頭好食材 怎麼下鍋都美味`,
+					`• 創意料理 • 驚喜的菜色 不膩的創意`,
+				][parseInt(dat[3])],
+				share_id: dat[4],
+			};
+		} catch (e) {
+			this.dataFail();
+			return;
+		}
+	}
+
+	dataFail() {
+		window.location.replace(Hash.root());
 	}
 
 	submit_click() {

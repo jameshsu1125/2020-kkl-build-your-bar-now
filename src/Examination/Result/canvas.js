@@ -95,11 +95,7 @@ export default class canvas extends React.Component {
 					this.ctx.font = '23px PingFangSC-Light';
 					this.ctx.fillStyle = '#d1ad5a';
 					this.ctx.fillText('恭喜你的金酒世界酒館開幕了！', 786, 145);
-					this.ctx.fillText(
-						`${this.wording[this.data[2]]},還不快邀請朋友`,
-						737,
-						185
-					);
+					this.ctx.fillText(`${this.wording[this.data[2]]},還不快邀請朋友`, 737, 185);
 					this.ctx.fillText('來你的酒館小酌一番。', 820, 226);
 
 					let y = 565;
@@ -133,13 +129,7 @@ export default class canvas extends React.Component {
 					let s = 0.8,
 						ly = bottle.height * (1 - s),
 						lx = bottle.width * (1 - s);
-					this.ctx.drawImage(
-						bottle,
-						this.x + lx,
-						this.y + ly,
-						bottle.width * s,
-						bottle.height * s
-					);
+					this.ctx.drawImage(bottle, this.x + lx, this.y + ly, bottle.width * s, bottle.height * s);
 				};
 
 				crow.onload = () => {
@@ -157,7 +147,7 @@ export default class canvas extends React.Component {
 	share() {
 		this.props.addLoading();
 		let base64 = {
-			image: this.refs.canvas.toDataURL('png/jpg', 0.5),
+			image: this.refs.canvas.toDataURL('image/jpeg', 0.5),
 		};
 		UGC_share.update(base64).then((e) => {
 			let u = e.share_url,

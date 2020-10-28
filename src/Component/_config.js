@@ -16,7 +16,7 @@ module.exports = {
 		},
 	},
 	UGC_share: {
-		url: 'https://kkl.uxer-lab.com/api/share',
+		url: 'https://storage.kklbuildyourbar.com/api/share',
 		update(base64) {
 			return new Promise((res, rej) => {
 				$.post(this.url, base64)
@@ -30,7 +30,7 @@ module.exports = {
 		},
 	},
 	Submit: {
-		url: 'https://kkl.uxer-lab.com/api/save',
+		url: 'https://storage.kklbuildyourbar.com/api/save',
 		send(data) {
 			return new Promise((res, rej) => {
 				$.post(this.url, data)

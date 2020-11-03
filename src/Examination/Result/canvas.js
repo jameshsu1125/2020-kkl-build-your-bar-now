@@ -19,38 +19,7 @@ export default class canvas extends React.Component {
 				this.c = root.refs.canvas;
 				this.ctx = this.c.getContext('2d');
 				this.draw();
-				//this.debug();
 				this.name = '你最熱銷的酒款' + this.bottle.name;
-			},
-			debug() {
-				this.x = 811;
-				this.y = 221;
-				this.z = 10;
-
-				$(window).keydown((e) => {
-					switch (e.keyCode) {
-						case 37:
-							//r
-							this.x--;
-							this.z--;
-							break;
-						case 38:
-							//t
-							this.y--;
-							break;
-						case 39:
-							//l
-							this.x++;
-							this.z++;
-							break;
-						case 40:
-							//d
-							this.y++;
-							break;
-					}
-					console.log(this.x + ', ' + this.y, this.z);
-					this.draw();
-				});
 			},
 			draw() {
 				let cover = new Image(),
@@ -90,11 +59,11 @@ export default class canvas extends React.Component {
 					this.ctx.fillStyle = '#2f0f0f';
 					this.ctx.fillText(this.headline[this.data[0]] + ' 酒館', 670 + 138, 80);
 
-					this.ctx.font = '23px PingFangSC-Light';
+					this.ctx.font = '23px Microsoft JhengHei';
 					this.ctx.fillStyle = '#d1ad5a';
-					this.ctx.fillText('恭喜你的金酒世界酒館開幕了！', 786, 145);
-					this.ctx.fillText(`${this.wording[this.data[2]]},還不快邀請朋友`, 737, 185);
-					this.ctx.fillText('來你的酒館小酌一番。', 820, 226);
+					this.ctx.fillText('恭喜你的金酒世界酒館開幕了！', 776, 145);
+					this.ctx.fillText(`${this.wording[this.data[2]]}，還不快邀請朋友`, 727, 185);
+					this.ctx.fillText('來你的酒館小酌一番。', 810, 226);
 
 					let y = 565,
 						x = coord - this.name.length * 19 * 0.5,
@@ -125,7 +94,7 @@ export default class canvas extends React.Component {
 					let s = 0.8,
 						ly = bottle.height * (1 - s),
 						lx = bottle.width * (1 - s);
-					this.ctx.drawImage(bottle, this.x + lx, this.y + ly, bottle.width * s, bottle.height * s);
+					this.ctx.drawImage(bottle, 811 + lx, 221 + ly, bottle.width * s, bottle.height * s);
 				};
 
 				crow.onload = () => {

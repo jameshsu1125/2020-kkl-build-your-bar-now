@@ -18,7 +18,7 @@ export default class content extends React.Component {
 		super(props);
 		this.state = { loading: false, question: false, level: true, submit: true };
 		Loader.onend = this.loader_end.bind(this);
-		this.data = [0, 0, 0, 0];
+		this.data = [1, 0, 0, 0];
 	}
 
 	loader_end() {

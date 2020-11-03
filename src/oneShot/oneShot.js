@@ -131,6 +131,7 @@ export default class oneShot extends React.Component {
 									<br />
 									說明：一款充滿男性魅力的金酒調酒。富有層次風味的口感，搭上鹹甜滋味的地瓜球，帶出台灣獨有風格。
 								</div>
+								<div className='ps'>*以上調酒價格以店家實際標價為準</div>
 							</div>
 							<div className='block'>
 								<div className='crow'></div>
@@ -177,6 +178,7 @@ export default class oneShot extends React.Component {
 										說明：以經典調酒Negroni為出發點，突顯金門高粱酒的不凡風味，添加富有台灣滋味的層次。
 									</div>
 								</div>
+								<div className='ps'>*以上調酒價格以店家實際標價為準</div>
 							</div>
 						</div>
 					</div>

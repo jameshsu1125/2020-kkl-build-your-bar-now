@@ -116,7 +116,7 @@ export default class content extends React.Component {
 							單醇 絕不簡單 品牌廣告
 						</div>
 						<div id='menu_5' className='btn'>
-							即玩即送One Shot
+							One Shot 即玩即送
 						</div>
 						<div id='menu_6' className='btn'>
 							活動條款

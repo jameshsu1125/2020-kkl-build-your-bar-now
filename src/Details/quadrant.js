@@ -89,10 +89,22 @@ export default class quadrant extends React.Component {
 				);
 			},
 		};
+
+		this.upwards = {
+			init() {
+				this.evt();
+			},
+			evt() {
+				root.props.TouchEvent.add('upwards', () => {
+					root.scorllTo(0);
+				});
+			},
+		};
 	}
 
 	componentDidMount() {
 		this.tr.init();
+		this.upwards.init();
 		$(this.refs.main).waitForImages({
 			finished: () => this.tr.in(),
 			each: (e) => {},
@@ -226,7 +238,10 @@ export default class quadrant extends React.Component {
 							<>
 								<Info ref='A0' title={this.hash.A0} deg='38' capacity='0.3L/0.6L/0.75L' wine={require('./img/details/A0.png')} />
 								<hr />
-								<Box headline='典故' description='金門高粱酒以上好瓷罈裝盛，不僅古樸典雅，對酒液更有出色的催陳效果。經長時間存放後，口感更加清香醇厚，深受行家喜愛。' />
+								<Box
+									headline='典故'
+									description='金門酒廠為迎合市場對中、低酒精度數的需求，於1999年推出「38度金門高粱酒」，沒有高酒精度的辛辣感，卻依然保留高粱酒香、純、甘、冽的餘韻，輕鬆易飲，適合年輕、年長族群及女性朋友消費飲用。'
+								/>
 								<hr />
 								<Box headline='包裝設計' description='酒標以中華象徵的雙龍呈現，與橘、銀、藍、黑色調連結，簡約大方透明的瓶身盛裝著清亮、優質的高粱酒，形塑了廣為盛行的38度金門高粱酒經典形貌。' />
 								<hr />
@@ -286,14 +301,14 @@ export default class quadrant extends React.Component {
 								<hr />
 								<Box
 									headline='典故'
-									description='源自1985 年陳年特級高粱酒，即為見證歷史和平的「黑金剛」，曾獲選為宴請各國使節國宴用酒，2016年首次參加世界食品品質評鑑大賞榮獲特金獎殊榮，用實力證明 「世界第一白酒」在金門，金門酒廠也將秉持世界級水準的釀酒工藝，持續在國際間大放異彩。'
+									description='源自1985年陳年特級高粱酒，即為見證歷史和平的「黑金剛」，曾獲選為宴請各國使節國宴用酒，2016年首次參加世界食品品質評鑑大賞榮獲特金獎殊榮，用實力證明 「世界第一白酒」在金門，金門酒廠也將秉持世界級水準的釀酒工藝，持續在國際間大放異彩。'
 								/>
 								<hr />
 								<Box headline='包裝設計' description='外盒用華美紅色與國人熟悉的燙金雙龍做為整體主視覺，象徵傳承堅持的優良酒質，成就不變的經典與精神。' />
 								<hr />
 								<Box
 									headline='酒液特色'
-									description='在天然資源擁 戴下，承襲古法釀造「三高二低一翻」，純糧固態發酵釀酒工藝，陳放酒窖中窖藏五年，窖內先天自然的冷空氣使酒香融合，酒質陳香濃郁，酒體豐厚，綿甜醇和， 回味悠長，是為頂級的高粱佳釀。'
+									description='在天然資源擁戴下，承襲古法釀造「三高二低一翻」，純糧固態發酵釀酒工藝，陳放酒窖中窖藏五年，窖內先天自然的冷空氣使酒香融合，酒質陳香濃郁，酒體豐厚，綿甜醇和， 回味悠長，是為頂級的高粱佳釀。'
 								/>
 								<hr />
 							</>
@@ -313,7 +328,7 @@ export default class quadrant extends React.Component {
 								<hr />
 								<Box
 									headline='典故'
-									description='「金門大高酒其特色是新釀好時較為濃厚，香氣及尾韻較為甜美，罈裝金門大高酒經瓷罈存放，其醇化效果更佳，常常開罈滿室酒香，在特別節日佳慶，親朋好友相聚，開罈好酒與好友共享，品酌甜美香濃的金門好，是人生最快意的享受。'
+									description='「金門大高酒」其特色是新釀好時較為濃厚，香氣及尾韻較為甜美，罈裝金門大高酒經瓷罈存放，其醇化效果更佳，常常開罈滿室酒香，在特別節日佳慶，親朋好友相聚，開罈好酒與好友共享，品酌甜美香濃的金門好，是人生最快意的享受。'
 								/>
 								<hr />
 								<Box
@@ -348,7 +363,7 @@ export default class quadrant extends React.Component {
 								<hr />
 								<Box
 									headline='典故'
-									description='「窖藏一年以上的特優金門高粱酒，調合優質陳年老酒精心製作而成，2017年首次參加舊金山世界烈酒競賽榮獲金牌獎，用實力證明金門高粱酒受專業評審的肯定，傳承堅持的優良酒質，成就不變的經典與精神。'
+									description='窖藏一年以上的特優金門高粱酒，調合優質陳年老酒精心製作而成，2017年首次參加舊金山世界烈酒競賽榮獲金牌獎，用實力證明金門高粱酒受專業評審的肯定，傳承堅持的優良酒質，成就不變的經典與精神。'
 								/>
 								<hr />
 								<Box
@@ -362,6 +377,7 @@ export default class quadrant extends React.Component {
 					</div>
 				</div>
 				{this.append_guad()}
+				<div id='upwards' ref='upwards' className='upwards'></div>
 			</div>
 		);
 	}

@@ -20,7 +20,7 @@ export default class canvas extends React.Component {
 				this.ctx = this.c.getContext('2d');
 				this.draw();
 				this.debug();
-				this.name = '你最熱門的酒款：' + this.bottle.name;
+				this.name = '你最熱銷的酒款' + this.bottle.name;
 			},
 			debug() {
 				this.x = 811;

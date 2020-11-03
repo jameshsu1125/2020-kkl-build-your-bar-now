@@ -54,7 +54,7 @@ export default class restaurant extends React.Component {
 			waitForAll: true,
 		});
 
-		gtag_pv('4界美食餐館　特製菜單');
+		gtag_pv('4界美食餐館　限定餐券');
 	}
 
 	render() {
@@ -64,12 +64,18 @@ export default class restaurant extends React.Component {
 					<div className='row'>
 						<div className='headline'>
 							<div className='bg'></div>
-							<div className='txt'>4界美食餐館　特製菜單</div>
+							<div className='txt'>4界美食餐館　限定餐券</div>
 						</div>
 					</div>
 					<div className='row'>
 						<div className='col'>
-							<div className='text'>只要分享遊戲結果至FB並設定為地球模式，就有機會抽中4界美食餐館雙人券。</div>
+							<div className='text'>
+								<p>
+									只要分享遊戲結果至個人FB，設定為公開模式，並#金門高粱酒 #金酒新4界 #金酒的世界餐桌，就有機會抽中「金酒的世界餐桌」餐券(雙人行)。*四家餐廳餐券為隨機抽選，恕無法指定餐廳。
+									*使用方式以限定餐券備註之使用說明為準。
+								</p>
+								<p>沒抽到別傷心！2020/11/12~2021/01/31只要到以下四間合作餐廳，也可以品嚐到金酒特製套餐及品飲金門高粱酒。*菜單內容及價格以店家標示為準</p>
+							</div>
 						</div>
 					</div>
 					<div className='row'>

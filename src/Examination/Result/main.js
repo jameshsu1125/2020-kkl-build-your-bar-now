@@ -198,7 +198,7 @@ export default class result extends React.Component {
 						<div className='body'>
 							恭喜你的金酒世界酒館開幕了！
 							<br />
-							{this.wording[this.props.data[2]]},還不快邀請朋友
+							{this.wording[this.props.data[2]]}，還不快邀請朋友
 							<br />
 							來你的酒館小酌一番。
 						</div>

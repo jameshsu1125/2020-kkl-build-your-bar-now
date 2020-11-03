@@ -88,7 +88,7 @@ export default class end extends React.Component {
 	}
 
 	fb_click() {
-		window.location.href = '#';
+		window.open('https://zh-tw.facebook.com/KKL.kin/');
 	}
 
 	close() {

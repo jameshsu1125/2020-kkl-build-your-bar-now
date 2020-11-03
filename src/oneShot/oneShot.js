@@ -50,7 +50,7 @@ export default class oneShot extends React.Component {
 			waitForAll: true,
 		});
 
-		gtag_pv('即玩即送 One Shot');
+		gtag_pv('One Shot 即玩即送');
 	}
 
 	render() {
@@ -61,11 +61,15 @@ export default class oneShot extends React.Component {
 						<div className='col'>
 							<div className='headline'>
 								<div className='bg'></div>
-								<div className='txt'>即玩即送 One Shot</div>
+								<div className='txt'>One Shot 即玩即送</div>
 							</div>
 							<div className='block'>
 								<div className='head'>活動內容</div>
-								<div className='desc'>只要參與「打造你的本命酒館」活動，將結果畫面上傳個人FB社群，即可現場免費獲得金門高粱酒Shot一杯</div>
+								<div className='desc'>
+									金酒特調期間限定推出！在以下兩間酒吧都有機會喝到Bartender精心設計的金酒特調，享受單醇絕不簡單的金門高粱酒。
+									<br />
+									同時只要在以下兩間合作酒吧參與「打造你的本命酒館」線上測驗遊戲，將結果畫面上傳至個人FB，並#金門高粱酒 #金酒新4界 ，向店家出示上傳畫面，即可免費獲得金門高粱酒Shot一杯。
+								</div>
 							</div>
 							<div className='block'>
 								<div className='head'>活動時間</div>

@@ -18,11 +18,26 @@ export default class guad0 extends React.Component {
 			init() {
 				this.c = $(root.refs.guad);
 				this.tran();
+				this.resize();
+				$(window).resize(() => this.resize());
 			},
 			evt() {
 				root.props.TouchEvent.add('close', () => {
 					root.props.TouchEvent.remove('close');
 					this.out();
+				});
+			},
+			resize() {
+				let h = window.innerHeight,
+					s = 1,
+					min = 900;
+				if (h < min) s = h / min;
+				$(root.refs.main).css({
+					transform: `scale(${s})`,
+					'-webkit-transform': `scale(${s})`,
+					'-moz-transform': `scale(${s})`,
+					'-o-transform': `scale(${s})`,
+					'-ms-transform': `scale(${s})`,
 				});
 			},
 			out() {

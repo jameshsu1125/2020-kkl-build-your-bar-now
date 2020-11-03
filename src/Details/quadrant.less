@@ -6,6 +6,27 @@
 	height: 100%;
 	margin-top: 112px;
 
+	.upwards {
+		position: fixed;
+		width: 40px;
+		height: 40px;
+		background-color: #fff;
+		z-index: 9;
+		bottom: 100px;
+		right: 15px;
+		background-image: url('./img/upwards-arrow.svg');
+		background-repeat: no-repeat;
+		background-size: 80%;
+		background-position: center;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: 0.2s;
+
+		&:hover {
+			background-color: #eee;
+		}
+	}
+
 	.context {
 		float: left;
 		width: 768px;
@@ -268,5 +289,9 @@
 @media only screen and (max-width: 768px) {
 	#quadrant {
 		margin-top: 134px;
+
+		.upwards {
+			bottom: 150px;
+		}
 	}
 }

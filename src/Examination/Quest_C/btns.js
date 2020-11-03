@@ -132,7 +132,7 @@ export default class btns extends React.Component {
 				<div id='q3' ref='q3' className='btn row-c'>
 					• 社交應酬 •
 					<br />
-					江湖鬥陣走，把酒交心
+					江湖鬥陣走
 					<br />
 					面子裡子都要有
 				</div>

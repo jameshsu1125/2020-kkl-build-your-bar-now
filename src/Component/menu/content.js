@@ -66,7 +66,7 @@ export default class content extends React.Component {
 					}, 300);
 				});
 				root.props.TouchEvent.add('menu_5', () => {
-					gtag_event('主選單', '即玩即送One Shot');
+					gtag_event('主選單', 'One Shot 即玩即送');
 					setTimeout(() => {
 						window.location.href = './oneShot.html';
 					}, 300);

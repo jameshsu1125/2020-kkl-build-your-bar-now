@@ -63,7 +63,7 @@ export default class ageWarning extends React.Component {
 	}
 
 	componentWillUnmount() {
-		root.props.TouchEvent.remove('ageWarning-btn');
+		this.props.TouchEvent.remove('ageWarning-btn');
 	}
 
 	render() {

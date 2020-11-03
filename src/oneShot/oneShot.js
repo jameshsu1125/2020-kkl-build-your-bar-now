@@ -68,7 +68,7 @@ export default class oneShot extends React.Component {
 								<div className='desc'>
 									金酒特調期間限定推出！在以下兩間酒吧都有機會喝到Bartender精心設計的金酒特調，享受單醇絕不簡單的金門高粱酒。
 									<br />
-									同時只要在以下兩間合作酒吧參與「打造你的本命酒館」線上測驗遊戲，將結果畫面上傳至個人FB，並#金門高粱酒 #金酒新4界 ，向店家出示上傳畫面，即可免費獲得金門高粱酒Shot一杯。
+									同時只要在以下兩間合作酒吧參與「打造你的本命酒館」線上測驗遊戲，將結果畫面上傳至個人FB，並#金門高粱酒#金酒新4界，向店家出示上傳畫面，即可免費獲得金門高粱酒Shot一杯。
 								</div>
 							</div>
 							<div className='block'>
@@ -105,9 +105,31 @@ export default class oneShot extends React.Component {
 							</div>
 							<div className='block'>
 								<div className='head'>金門高粱酒獨家特調</div>
-								<div className='img'>
-									<div className='img-1'></div>
-									<div className='img-2'></div>
+								<div className='img-1-0'></div>
+								<div className='desc'>
+									酒名：畫菊
+									<br />
+									酒譜 ：38度金門高粱酒,Roku Gin, Kiwi ,Lime ,Chrysanthemum tea
+									<br />
+									說明：與台灣獨特茶文化結合，融入菊花茶的風味，增加田園的風格，與金門高粱酒激盪出完美配搭。
+								</div>
+								<div className='img-1-1'></div>
+								<div className='desc'>
+									酒名：西施&高粱
+									<br />
+									酒譜：58度金門高粱酒, Raspberry, Prucia, Honey, Lime
+									<br />
+									說明：靈感源自台灣檳榔西施的概念，創造一款充滿台灣本土風味的調酒，搭上梅酒及透過檳榔的元素，提出金門高粱酒的獨特香氣。
+								</div>
+								<div className='img-1-2'></div>
+								<div className='desc'>
+									酒名：千江同月
+									<br />
+									酒譜：58度金門高粱酒, Dolin Dry Vermouth,Mozart Dark Cacao,
+									<br />
+									Boker’s bitter,Hazelnut Oil,Maraschino
+									<br />
+									說明：一款充滿男性魅力的金酒調酒。富有層次風味的口感，搭上鹹甜滋味的地瓜球，帶出台灣獨有風格。
 								</div>
 							</div>
 							<div className='block'>
@@ -129,9 +151,31 @@ export default class oneShot extends React.Component {
 							</div>
 							<div className='block'>
 								<div className='head'>金門高粱酒獨家特調</div>
+								<div className='img-4-0'></div>
+								<div className='desc'>
+									酒名：Golden Age
+									<br />
+									酒譜：38度金門高粱酒、58度金門高粱酒、百香果、法樂南、萊姆、安格式amaro、柳橙
+									<br />
+									說明：融合兩款經典的金門高粱酒，以酸甜果香風味中和，保有金酒獨有香氣及口感，在兩者中取得完美的平衡。
+								</div>
+								<div className='img-4-1'></div>
+								<div className='desc'>
+									酒名：花好月圓
+									<br />
+									酒譜：38度金門高粱酒、大黃、薑汁糖漿
+									<br />
+									說明：運用38度金門高粱酒的獨特辛香，搭配上清香的大黃，最後以桂花裝飾，創造出一款清雅溫和的金酒特調。
+								</div>
 								<div className='img'>
-									<div className='img-4'></div>
-									<div className='img-5'></div>
+									<div className='img-4-2'></div>
+									<div className='img-des'>
+										酒名：金高摸妳
+										<br />
+										酒譜：38度金門高粱酒、campari 龍膽紅酒、葡萄柚、葡萄柚糖漿
+										<br />
+										說明：以經典調酒Negroni為出發點，突顯金門高粱酒的不凡風味，添加富有台灣滋味的層次。
+									</div>
 								</div>
 							</div>
 						</div>

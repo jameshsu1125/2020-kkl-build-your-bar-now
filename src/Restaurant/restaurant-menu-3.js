@@ -3,20 +3,6 @@ import React from 'react';
 export default class restaurantMenu extends React.Component {
 	constructor(props) {
 		super(props);
-		const root = this;
-		//script
-	}
-
-	componentDidMount() {
-		//script
-	}
-
-	componentDidUpdate() {
-		//script
-	}
-
-	componentWillUnmount() {
-		//script
 	}
 
 	render() {
@@ -36,6 +22,7 @@ export default class restaurantMenu extends React.Component {
 						<div className='hr'></div>
 					</div>
 					<div className='table-3'></div>
+					<div className='ps'>*隨餐附贈原釀21金門高粱酒溫飲一杯</div>
 				</div>
 			</div>
 		);

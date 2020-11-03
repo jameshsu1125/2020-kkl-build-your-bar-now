@@ -19,7 +19,7 @@ export default class canvas extends React.Component {
 				this.c = root.refs.canvas;
 				this.ctx = this.c.getContext('2d');
 				this.draw();
-				this.debug();
+				//this.debug();
 				this.name = '你最熱銷的酒款' + this.bottle.name;
 			},
 			debug() {
@@ -66,7 +66,6 @@ export default class canvas extends React.Component {
 					let gw = (cover.width - 670) / 2;
 					let x = 0 - gw;
 					this.ctx.drawImage(cover, x, 0, 670 + gw, 630);
-
 					logo.src = require('./../../Component/logo/img/logo.png');
 				};
 				cover.src = require(`./img/c${this.data[0]}.jpg`);
@@ -75,7 +74,6 @@ export default class canvas extends React.Component {
 					let p = this.ctx.createPattern(bg, 'repeat');
 					this.ctx.fillStyle = p;
 					this.ctx.fillRect(670, 0, 1200 - 670, 630);
-
 					frame.src = require('./img/frame_canvas.png');
 				};
 				bg.src = require('./img/bg.jpg');
@@ -98,10 +96,9 @@ export default class canvas extends React.Component {
 					this.ctx.fillText(`${this.wording[this.data[2]]},還不快邀請朋友`, 737, 185);
 					this.ctx.fillText('來你的酒館小酌一番。', 820, 226);
 
-					let y = 565;
-
-					let x = coord - this.name.length * 19 * 0.5;
-					let w = this.name.length * 23;
+					let y = 565,
+						x = coord - this.name.length * 19 * 0.5,
+						w = this.name.length * 23;
 					this.ctx.fillText(this.name, x, y);
 
 					this.ctx.beginPath();
@@ -121,7 +118,6 @@ export default class canvas extends React.Component {
 				effect.onload = () => {
 					let s = 0.8;
 					this.ctx.drawImage(effect, 846, 211, effect.width * s, effect.height * s);
-
 					bottle.src = this.bottle.img;
 				};
 

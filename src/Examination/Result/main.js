@@ -203,7 +203,7 @@ export default class result extends React.Component {
 							來你的酒館小酌一番。
 						</div>
 						<div className='des'>
-							<span>你最熱門的酒款：{this.bottle.name}</span>
+							<span>你最熱銷的酒款：{this.bottle.name}</span>
 						</div>
 						<div className='btns'>
 							<div id='result_share' className='btn'>

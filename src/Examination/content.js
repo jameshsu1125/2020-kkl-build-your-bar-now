@@ -35,21 +35,14 @@ export default class content extends React.Component {
 
 	loader_remove() {
 		this.setState({ loading: false });
-		this.setState({ question: 'A' }, () => {
-			//this.setState({ question: 'Result' }, () => {
+		//this.setState({ question: 'A' }, () => {
+		this.setState({ question: 'Result' }, () => {
 			if (this.refs.question.in) this.refs.question.in();
 		});
 	}
 
 	appendLoading() {
-		if (this.state.loading)
-			return (
-				<Loading
-					ref='loader'
-					end={this.loader_remove.bind(this)}
-					ready={this.loader_ready.bind(this)}
-				/>
-			);
+		if (this.state.loading) return <Loading ref='loader' end={this.loader_remove.bind(this)} ready={this.loader_ready.bind(this)} />;
 	}
 
 	load_each(e) {
@@ -88,46 +81,13 @@ export default class content extends React.Component {
 					/>
 				);
 			case 'B':
-				return (
-					<Question_B
-						ref='question'
-						question='B'
-						loaded={this.load_loaded.bind(this)}
-						each={this.load_each.bind(this)}
-						TouchEvent={this.props.TouchEvent}
-						ined={this.question_ready.bind(this)}
-					/>
-				);
+				return <Question_B ref='question' question='B' loaded={this.load_loaded.bind(this)} each={this.load_each.bind(this)} TouchEvent={this.props.TouchEvent} ined={this.question_ready.bind(this)} />;
 			case 'C':
-				return (
-					<Question_C
-						ref='question'
-						question='C'
-						loaded={this.load_loaded.bind(this)}
-						each={this.load_each.bind(this)}
-						TouchEvent={this.props.TouchEvent}
-						ined={this.question_ready.bind(this)}
-					/>
-				);
+				return <Question_C ref='question' question='C' loaded={this.load_loaded.bind(this)} each={this.load_each.bind(this)} TouchEvent={this.props.TouchEvent} ined={this.question_ready.bind(this)} />;
 			case 'D':
-				return (
-					<Question_D
-						ref='question'
-						question='D'
-						loaded={this.load_loaded.bind(this)}
-						each={this.load_each.bind(this)}
-						TouchEvent={this.props.TouchEvent}
-						ined={this.question_ready.bind(this)}
-					/>
-				);
+				return <Question_D ref='question' question='D' loaded={this.load_loaded.bind(this)} each={this.load_each.bind(this)} TouchEvent={this.props.TouchEvent} ined={this.question_ready.bind(this)} />;
 			case 'Result':
-				return (
-					<Result
-						ref='question'
-						TouchEvent={this.props.TouchEvent}
-						data={this.data}
-					/>
-				);
+				return <Result ref='question' TouchEvent={this.props.TouchEvent} data={this.data} />;
 		}
 	}
 
@@ -172,27 +132,10 @@ export default class content extends React.Component {
 	}
 
 	append_level() {
-		if (this.state.level)
-			return (
-				<Level
-					ref='level'
-					TouchEvent={this.props.TouchEvent}
-					click={this.level_click.bind(this)}
-					back={this.level_back.bind(this)}
-					destory={this.level_destory.bind(this)}
-				/>
-			);
+		if (this.state.level) return <Level ref='level' TouchEvent={this.props.TouchEvent} click={this.level_click.bind(this)} back={this.level_back.bind(this)} destory={this.level_destory.bind(this)} />;
 	}
 	append_submit() {
-		if (this.state.submit)
-			return (
-				<Submit
-					ref='submit'
-					TouchEvent={this.props.TouchEvent}
-					click={this.submit_click.bind(this)}
-					destory={this.submit_destory.bind(this)}
-				/>
-			);
+		if (this.state.submit) return <Submit ref='submit' TouchEvent={this.props.TouchEvent} click={this.submit_click.bind(this)} destory={this.submit_destory.bind(this)} />;
 	}
 
 	render() {

@@ -109,7 +109,7 @@ export default class guad2 extends React.Component {
 								<br />
 								前段：花蜜香、醇甜香
 								<br />
-								🈝段：甜瓜果香、清香糧香
+								後段：甜瓜果香、清香糧香
 							</div>
 						</div>
 						<div className='table-row'>

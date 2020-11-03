@@ -4,6 +4,8 @@ import './ageWarning.less';
 import $ from 'jquery';
 require('jquery-easing');
 
+import { gtag_pv, gtag_event } from 'SOCIAL/Gtag';
+
 export default class ageWarning extends React.Component {
 	constructor(props) {
 		super(props);
@@ -45,8 +47,8 @@ export default class ageWarning extends React.Component {
 			},
 			evt: function () {
 				root.props.TouchEvent.add('ageWarning-btn', () => {
-					root.props.TouchEvent.remove('ageWarning-btn');
 					this.out();
+					gtag_event('未成年', '關閉');
 				});
 			},
 			tran: function () {
@@ -57,6 +59,11 @@ export default class ageWarning extends React.Component {
 
 	componentDidMount() {
 		this.tr.init();
+		gtag_pv('未成年');
+	}
+
+	componentWillUnmount() {
+		root.props.TouchEvent.remove('ageWarning-btn');
 	}
 
 	render() {

@@ -7,6 +7,7 @@ require('jquery-easing');
 require('jquery.waitforimages');
 
 import Canvas from './canvas';
+import { gtag_pv, gtag_event } from 'SOCIAL/Gtag';
 
 export default class result extends React.Component {
 	constructor(props) {
@@ -14,12 +15,7 @@ export default class result extends React.Component {
 		const root = this;
 		this.state = { loading: false };
 		this.headline = ['暮色潮間', '金夜風華', '草木森活', '日間工寓'];
-		this.wording = [
-			'珍惜每個美好當下的你',
-			'喜歡私房小酌的你',
-			'在江湖走跳的你',
-			'喜歡跟親友交心的你',
-		];
+		this.wording = ['珍惜每個美好當下的你', '喜歡私房小酌的你', '在江湖走跳的你', '喜歡跟親友交心的你'];
 		this.imgs = [
 			[
 				{ img: require('./img/bottle/A0.png'), name: '38度金門高粱酒' },
@@ -39,9 +35,6 @@ export default class result extends React.Component {
 				{ img: require('./img/bottle/D1.png'), name: '特優金門高粱酒' },
 			],
 		];
-
-		//console.log(this.props.data);
-
 		let d = this.imgs[this.props.data[1]],
 			r = Math.floor(Math.random() * d.length);
 
@@ -63,12 +56,19 @@ export default class result extends React.Component {
 			evt() {
 				root.props.TouchEvent.add('result_share', () => {
 					root.refs.canvas.share();
+					gtag_event('結果頁', '分享');
 				});
 				root.props.TouchEvent.add('result_replay', () => {
-					window.location.reload();
+					setTimeout(() => {
+						window.location.reload();
+					}, 300);
+					gtag_event('結果頁', '再開一家');
 				});
 				root.props.TouchEvent.add('result_info', () => {
-					window.location.href = './details.html';
+					setTimeout(() => {
+						window.location.href = './details.html';
+					}, 300);
+					gtag_event('結果頁', '更了解熱門酒款');
 				});
 			},
 			lig_b: {
@@ -173,6 +173,7 @@ export default class result extends React.Component {
 			each: (e) => {},
 			waitForAll: true,
 		});
+		gtag_pv('結果頁');
 	}
 
 	appendLoading() {
@@ -217,10 +218,7 @@ export default class result extends React.Component {
 						</div>
 						<div className='wine'>
 							<div className='sl'></div>
-							<div
-								className='bottle'
-								style={{ background: `url(${this.bottle.img})` }}
-							></div>
+							<div className='bottle' style={{ background: `url(${this.bottle.img})` }}></div>
 						</div>
 						<div ref='lig_a' className='light p1'></div>
 						<div ref='lig_b' className='light p2'></div>

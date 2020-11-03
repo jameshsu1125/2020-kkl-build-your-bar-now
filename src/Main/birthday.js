@@ -4,12 +4,12 @@ import $ from 'jquery';
 require('jquery-easing');
 
 const swal = require('sweetalert');
+import { gtag_pv, gtag_event } from 'SOCIAL/Gtag';
 
 export default class birthday extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
-		//script
 		this.tr = {
 			b: -460,
 			time: 800,
@@ -73,10 +73,12 @@ export default class birthday extends React.Component {
 
 		let alive = dis / 1000 / 60 / 60 / 24 / 365;
 		this.tr.out(alive < 18);
+		gtag_event('輸入生日', '送出');
 	}
 
 	componentDidMount() {
 		this.tr.init();
+		gtag_pv('輸入生日');
 	}
 
 	append_years() {

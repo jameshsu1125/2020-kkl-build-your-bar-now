@@ -7,10 +7,13 @@ import OC from 'UI/OrientationChange';
 import TouchEvent from 'EVENT/TouchEvent';
 import Content from './content';
 
+import { gtag_install } from 'SOCIAL/Gtag';
+
 export default class main extends React.Component {
 	constructor(props) {
 		super(props);
 		TouchEvent.init(true);
+		gtag_install();
 	}
 
 	render() {

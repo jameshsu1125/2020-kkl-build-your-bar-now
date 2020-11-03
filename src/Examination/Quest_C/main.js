@@ -4,6 +4,7 @@ import './main.less';
 import Scene from './scene';
 import Btns from './btns';
 import { Loader, lastComponent } from './../../Component/_config';
+import { gtag_pv } from 'SOCIAL/Gtag';
 
 import $ from 'jquery';
 require('jquery-easing');
@@ -173,6 +174,7 @@ export default class main extends React.Component {
 
 	in() {
 		this.tr.in();
+		gtag_pv('你最常在什麼時刻飲酒呢?');
 	}
 
 	out(cb) {
@@ -214,18 +216,8 @@ export default class main extends React.Component {
 						你最常在什麼時刻飲酒呢?
 					</div>
 				</div>
-				<Btns
-					ref='btns'
-					TouchEvent={this.props.TouchEvent}
-					click={this.btns_click.bind(this)}
-					ready={this.btns_ready.bind(this)}
-				/>
-				<Scene
-					ref='scene'
-					TouchEvent={this.props.TouchEvent}
-					prev={this.scene_prev.bind(this)}
-					next={this.scene_next.bind(this)}
-				/>
+				<Btns ref='btns' TouchEvent={this.props.TouchEvent} click={this.btns_click.bind(this)} ready={this.btns_ready.bind(this)} />
+				<Scene ref='scene' TouchEvent={this.props.TouchEvent} prev={this.scene_prev.bind(this)} next={this.scene_next.bind(this)} />
 			</div>
 		);
 	}

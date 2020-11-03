@@ -4,6 +4,8 @@ import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
 
+import { gtag_pv } from 'SOCIAL/Gtag';
+
 export default class cf extends React.Component {
 	constructor(props) {
 		super(props);
@@ -62,6 +64,7 @@ export default class cf extends React.Component {
 			finished: () => this.tr.in(),
 			waitForAll: true,
 		});
+		gtag_pv('品牌影片');
 	}
 
 	render() {

@@ -5,6 +5,8 @@ import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
 
+import { gtag_pv, gtag_event } from 'SOCIAL/Gtag';
+
 export default class intro extends React.Component {
 	constructor(props) {
 		super(props);
@@ -20,16 +22,9 @@ export default class intro extends React.Component {
 			in: function () {
 				this.arr0.in();
 				this.arr1.in();
-				$(root.refs.txt).animate(
-					{
-						'line-height': '1.7em',
-					},
-					1000,
-					'easeOutExpo',
-					() => {
-						this.btn.in();
-					}
-				);
+				$(root.refs.txt).animate({ 'line-height': '1.7em' }, 1000, 'easeOutExpo', () => {
+					this.btn.in();
+				});
 			},
 			out: function () {
 				root.props.enter();
@@ -150,6 +145,7 @@ export default class intro extends React.Component {
 					this.c.mouseout(() => this.mouseout());
 					root.props.TouchEvent.add('intro_btn', () => {
 						root.tr.out();
+						gtag_event('首頁', '立即開店');
 					});
 				},
 				mouseout: function () {

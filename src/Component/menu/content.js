@@ -4,6 +4,7 @@ import $ from 'jquery';
 require('jquery-easing');
 
 import Hash from 'UNIT/Get';
+import { gtag_event } from 'SOCIAL/Gtag';
 
 export default class content extends React.Component {
 	constructor(props) {
@@ -41,22 +42,40 @@ export default class content extends React.Component {
 			},
 			evt() {
 				root.props.TouchEvent.add('menu_1', () => {
-					window.location.href = Hash.root();
+					gtag_event('主選單', '開始遊戲');
+					setTimeout(() => {
+						window.location.href = Hash.root();
+					}, 300);
 				});
 				root.props.TouchEvent.add('menu_2', () => {
-					window.location.href = './details.html';
+					gtag_event('主選單', '金酒新4界');
+					setTimeout(() => {
+						window.location.href = './details.html';
+					}, 300);
 				});
 				root.props.TouchEvent.add('menu_3', () => {
-					window.location.href = './restaurant.html';
+					gtag_event('主選單', '金酒的世界餐桌');
+					setTimeout(() => {
+						window.location.href = './restaurant.html';
+					}, 300);
 				});
 				root.props.TouchEvent.add('menu_4', () => {
-					window.location.href = './commercialFilm.html';
+					gtag_event('主選單', '單醇 絕不簡單 品牌廣告');
+					setTimeout(() => {
+						window.location.href = './commercialFilm.html';
+					}, 300);
 				});
 				root.props.TouchEvent.add('menu_5', () => {
-					window.location.href = './oneShot.html';
+					gtag_event('主選單', '即玩即送One Shot');
+					setTimeout(() => {
+						window.location.href = './oneShot.html';
+					}, 300);
 				});
 				root.props.TouchEvent.add('menu_6', () => {
-					window.location.href = './terms.html';
+					gtag_event('主選單', '活動條款');
+					setTimeout(() => {
+						window.location.href = './terms.html';
+					}, 300);
 				});
 				this.resize();
 				$(window).resize(() => this.resize());

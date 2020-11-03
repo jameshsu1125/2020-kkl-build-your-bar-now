@@ -1,10 +1,11 @@
 import React from 'react';
 import './menu.less';
-
 import Content from './content';
 
 import $ from 'jquery';
 require('jquery-easing');
+
+import { gtag_pv } from 'SOCIAL/Gtag';
 
 export default class menu extends React.Component {
 	constructor(props) {
@@ -81,6 +82,7 @@ export default class menu extends React.Component {
 				setTimeout(() => {
 					this.is = true;
 				}, time * 2);
+				gtag_pv('主選單');
 			},
 			close: function () {
 				const self = this;
@@ -155,11 +157,7 @@ export default class menu extends React.Component {
 				this.l.each(function (i) {
 					$(this)
 						.delay(delay * i)
-						.animate(
-							{ width: '50px', 'margin-left': 0 - 50 / 2 + 'px' },
-							time,
-							'easeOutQuart'
-						);
+						.animate({ width: '50px', 'margin-left': 0 - 50 / 2 + 'px' }, time, 'easeOutQuart');
 				});
 			},
 			mouseover: function () {
@@ -169,11 +167,7 @@ export default class menu extends React.Component {
 				this.l.each(function (i) {
 					$(this)
 						.delay(delay * i)
-						.animate(
-							{ width: width + 'px', 'margin-left': 0 - width / 2 + 'px' },
-							time,
-							'easeOutQuart'
-						);
+						.animate({ width: width + 'px', 'margin-left': 0 - width / 2 + 'px' }, time, 'easeOutQuart');
 				});
 			},
 			setRotate: function (t, r) {

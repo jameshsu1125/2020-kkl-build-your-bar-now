@@ -9,6 +9,8 @@ import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
 
+import { gtag_pv } from 'SOCIAL/Gtag';
+
 export default class restaurant extends React.Component {
 	constructor(props) {
 		super(props);
@@ -51,6 +53,8 @@ export default class restaurant extends React.Component {
 			each: (e) => {},
 			waitForAll: true,
 		});
+
+		gtag_pv('4界美食餐館　特製菜單');
 	}
 
 	render() {
@@ -65,9 +69,7 @@ export default class restaurant extends React.Component {
 					</div>
 					<div className='row'>
 						<div className='col'>
-							<div className='text'>
-								只要分享遊戲結果至FB並設定為地球模式，就有機會抽中4界美食餐館雙人券。
-							</div>
+							<div className='text'>只要分享遊戲結果至FB並設定為地球模式，就有機會抽中4界美食餐館雙人券。</div>
 						</div>
 					</div>
 					<div className='row'>

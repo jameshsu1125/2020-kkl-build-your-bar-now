@@ -6,6 +6,8 @@ require('jquery-easing');
 require('jquery.waitforimages');
 import Hash from 'UNIT/Get';
 
+import { gtag_pv } from 'SOCIAL/Gtag';
+
 export default class end extends React.Component {
 	constructor(props) {
 		super(props);
@@ -81,6 +83,8 @@ export default class end extends React.Component {
 			finished: () => this.tr.in(),
 			waitForAll: true,
 		});
+
+		gtag_pv('抽獎成功頁');
 	}
 
 	fb_click() {

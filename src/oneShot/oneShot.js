@@ -5,6 +5,8 @@ import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
 
+import { gtag_pv } from 'SOCIAL/Gtag';
+
 export default class oneShot extends React.Component {
 	constructor(props) {
 		super(props);
@@ -47,6 +49,8 @@ export default class oneShot extends React.Component {
 			each: (e) => {},
 			waitForAll: true,
 		});
+
+		gtag_pv('即玩即送 One Shot');
 	}
 
 	render() {

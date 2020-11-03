@@ -8,7 +8,8 @@
 		"start": "export NODE_ENV=development && webpack-dev-server --config ./webpack.config.js --mode development",
 		"op": "export NODE_ENV=production && webpack -p",
 		"build": "webpack-dev-server --config ./webpack.config.js",
-		"deploy": "gh-pages -d dist"
+		"deploy": "gh-pages -d dist",
+		"rm": "rm -rf node_modules/ package-lock.json"
 	},
 	"private": "true",
 	"browserslist": {

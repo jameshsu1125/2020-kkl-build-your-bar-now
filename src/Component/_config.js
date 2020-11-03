@@ -43,4 +43,5 @@ module.exports = {
 			});
 		},
 	},
+	gtag_id: 'G-F7RPZD4687',
 };

@@ -5,6 +5,8 @@ import $ from 'jquery';
 require('jquery-easing');
 require('jquery.waitforimages');
 
+import { gtag_pv } from 'SOCIAL/Gtag';
+
 export default class guad2 extends React.Component {
 	constructor(props) {
 		super(props);
@@ -67,6 +69,8 @@ export default class guad2 extends React.Component {
 			each: (e) => {},
 			waitForAll: true,
 		});
+
+		gtag_pv('象限：清雅甘淨');
 	}
 
 	render() {

@@ -14,6 +14,8 @@ import Guad1 from './guad1';
 import Guad2 from './guad2';
 import Guad3 from './guad3';
 
+import { gtag_pv } from 'SOCIAL/Gtag';
+
 export default class quadrant extends React.Component {
 	constructor(props) {
 		super(props);
@@ -118,6 +120,8 @@ export default class quadrant extends React.Component {
 		for (var i = 0; i < 4; i++) {
 			this.props.TouchEvent.add('guad-' + i, (e) => this.guad_click(e));
 		}
+
+		gtag_pv('金酒新4界');
 	}
 
 	guad_click(e) {
@@ -130,11 +134,7 @@ export default class quadrant extends React.Component {
 		let nt = $('html, body').scrollTop(),
 			time = Math.abs(nt - y) * 0.3;
 
-		$('html, body').animate(
-			{ scrollTop: y },
-			time > 1000 ? 1000 : time,
-			'easeOutQuart'
-		);
+		$('html, body').animate({ scrollTop: y }, time > 1000 ? 1000 : time, 'easeOutQuart');
 	}
 
 	changeHash(e) {
@@ -151,33 +151,13 @@ export default class quadrant extends React.Component {
 		if (this.state.guad) {
 			switch (this.state.guad) {
 				case 'guad-0':
-					return (
-						<Guad0
-							TouchEvent={this.props.TouchEvent}
-							destory={this.guad_destory.bind(this)}
-						/>
-					);
+					return <Guad0 TouchEvent={this.props.TouchEvent} destory={this.guad_destory.bind(this)} />;
 				case 'guad-1':
-					return (
-						<Guad1
-							TouchEvent={this.props.TouchEvent}
-							destory={this.guad_destory.bind(this)}
-						/>
-					);
+					return <Guad1 TouchEvent={this.props.TouchEvent} destory={this.guad_destory.bind(this)} />;
 				case 'guad-2':
-					return (
-						<Guad2
-							TouchEvent={this.props.TouchEvent}
-							destory={this.guad_destory.bind(this)}
-						/>
-					);
+					return <Guad2 TouchEvent={this.props.TouchEvent} destory={this.guad_destory.bind(this)} />;
 				case 'guad-3':
-					return (
-						<Guad3
-							TouchEvent={this.props.TouchEvent}
-							destory={this.guad_destory.bind(this)}
-						/>
-					);
+					return <Guad3 TouchEvent={this.props.TouchEvent} destory={this.guad_destory.bind(this)} />;
 			}
 		}
 	}
@@ -244,23 +224,11 @@ export default class quadrant extends React.Component {
 							<div className='corner'></div>
 							<div className='corner'></div>
 							<>
-								<Info
-									ref='A0'
-									title={this.hash.A0}
-									deg='38'
-									capacity='0.3L/0.6L/0.75L'
-									wine={require('./img/details/A0.png')}
-								/>
+								<Info ref='A0' title={this.hash.A0} deg='38' capacity='0.3L/0.6L/0.75L' wine={require('./img/details/A0.png')} />
 								<hr />
-								<Box
-									headline='典故'
-									description='金門高粱酒以上好瓷罈裝盛，不僅古樸典雅，對酒液更有出色的催陳效果。經長時間存放後，口感更加清香醇厚，深受行家喜愛。'
-								/>
+								<Box headline='典故' description='金門高粱酒以上好瓷罈裝盛，不僅古樸典雅，對酒液更有出色的催陳效果。經長時間存放後，口感更加清香醇厚，深受行家喜愛。' />
 								<hr />
-								<Box
-									headline='包裝設計'
-									description='酒標以中華象徵的雙龍呈現，與橘、銀、藍、黑色調連結，簡約大方透明的瓶身盛裝著清亮、優質的高粱酒，形塑了廣為盛行的38度金門高粱酒經典形貌。'
-								/>
+								<Box headline='包裝設計' description='酒標以中華象徵的雙龍呈現，與橘、銀、藍、黑色調連結，簡約大方透明的瓶身盛裝著清亮、優質的高粱酒，形塑了廣為盛行的38度金門高粱酒經典形貌。' />
 								<hr />
 								<Box
 									headline='酒液特色'
@@ -269,23 +237,11 @@ export default class quadrant extends React.Component {
 								<hr />
 							</>
 							<>
-								<Info
-									ref='A1'
-									title={this.hash.A1}
-									deg='58'
-									capacity='0.3L/0.6L/0.75L'
-									wine={require('./img/details/A1.png')}
-								/>
+								<Info ref='A1' title={this.hash.A1} deg='58' capacity='0.3L/0.6L/0.75L' wine={require('./img/details/A1.png')} />
 								<hr />
-								<Box
-									headline='典故'
-									description='源自1962年問世的特級高粱酒，俗稱為「白金龍」，是深具金門酒廠標誌性風格的最大宗酒款之一。'
-								/>
+								<Box headline='典故' description='源自1962年問世的特級高粱酒，俗稱為「白金龍」，是深具金門酒廠標誌性風格的最大宗酒款之一。' />
 								<hr />
-								<Box
-									headline='包裝設計'
-									description='酒標以中華象徵的雙龍呈現，與金、銀、黑、紅色調連結，氣勢磅礡，透明的瓶身盛裝著明亮、優質的高粱酒，形塑了廣為盛行的58度金門高粱酒經典形貌。'
-								/>
+								<Box headline='包裝設計' description='酒標以中華象徵的雙龍呈現，與金、銀、黑、紅色調連結，氣勢磅礡，透明的瓶身盛裝著明亮、優質的高粱酒，形塑了廣為盛行的58度金門高粱酒經典形貌。' />
 								<hr />
 								<Box
 									headline='酒液特色'
@@ -294,18 +250,9 @@ export default class quadrant extends React.Component {
 								<hr />
 							</>
 							<>
-								<Info
-									ref='A2'
-									title={this.hash.A2}
-									deg='58'
-									capacity='1L/2L/3L/5L'
-									wine={require('./img/details/A2.png')}
-								/>
+								<Info ref='A2' title={this.hash.A2} deg='58' capacity='1L/2L/3L/5L' wine={require('./img/details/A2.png')} />
 								<hr />
-								<Box
-									headline='典故'
-									description='金門高粱酒以上好瓷罈裝盛，不僅古樸典雅，對酒液更有出色的催陳效果。經長時間存放後，口感更加清香醇厚，深受行家喜愛。'
-								/>
+								<Box headline='典故' description='金門高粱酒以上好瓷罈裝盛，不僅古樸典雅，對酒液更有出色的催陳效果。經長時間存放後，口感更加清香醇厚，深受行家喜愛。' />
 								<hr />
 								<Box
 									headline='包裝設計'
@@ -319,13 +266,7 @@ export default class quadrant extends React.Component {
 								<hr />
 							</>
 							<>
-								<Info
-									ref='B0'
-									title={this.hash.B0}
-									deg='56'
-									capacity='0.75L'
-									wine={require('./img/details/B0.png')}
-								/>
+								<Info ref='B0' title={this.hash.B0} deg='56' capacity='0.75L' wine={require('./img/details/B0.png')} />
 								<hr />
 								<Box
 									headline='包裝設計'
@@ -341,23 +282,14 @@ export default class quadrant extends React.Component {
 								<hr />
 							</>
 							<>
-								<Info
-									ref='B1'
-									title={this.hash.B1}
-									deg='56'
-									capacity='0.6L'
-									wine={require('./img/details/B1.png')}
-								/>
+								<Info ref='B1' title={this.hash.B1} deg='56' capacity='0.6L' wine={require('./img/details/B1.png')} />
 								<hr />
 								<Box
 									headline='典故'
 									description='源自1985 年陳年特級高粱酒，即為見證歷史和平的「黑金剛」，曾獲選為宴請各國使節國宴用酒，2016年首次參加世界食品品質評鑑大賞榮獲特金獎殊榮，用實力證明 「世界第一白酒」在金門，金門酒廠也將秉持世界級水準的釀酒工藝，持續在國際間大放異彩。'
 								/>
 								<hr />
-								<Box
-									headline='包裝設計'
-									description='外盒用華美紅色與國人熟悉的燙金雙龍做為整體主視覺，象徵傳承堅持的優良酒質，成就不變的經典與精神。'
-								/>
+								<Box headline='包裝設計' description='外盒用華美紅色與國人熟悉的燙金雙龍做為整體主視覺，象徵傳承堅持的優良酒質，成就不變的經典與精神。' />
 								<hr />
 								<Box
 									headline='酒液特色'
@@ -366,18 +298,9 @@ export default class quadrant extends React.Component {
 								<hr />
 							</>
 							<>
-								<Info
-									ref='C0'
-									title={this.hash.C0}
-									deg='46'
-									capacity='0.56L'
-									wine={require('./img/details/C1.png')}
-								/>
+								<Info ref='C0' title={this.hash.C0} deg='46' capacity='0.56L' wine={require('./img/details/C1.png')} />
 								<hr />
-								<Box
-									headline='包裝設計'
-									description='尊榮黑金配色、不凡質感完勝，金龍環繞瓶身，彰顯極致品味、氣宇軒昂。'
-								/>
+								<Box headline='包裝設計' description='尊榮黑金配色、不凡質感完勝，金龍環繞瓶身，彰顯極致品味、氣宇軒昂。' />
 								<hr />
 								<Box
 									headline='酒液特色'
@@ -386,13 +309,7 @@ export default class quadrant extends React.Component {
 								<hr />
 							</>
 							<>
-								<Info
-									ref='C1'
-									title={this.hash.C1}
-									deg='53'
-									capacity='1L/2L/3L/5L'
-									wine={require('./img/details/D1.png')}
-								/>
+								<Info ref='C1' title={this.hash.C1} deg='53' capacity='1L/2L/3L/5L' wine={require('./img/details/D1.png')} />
 								<hr />
 								<Box
 									headline='典故'
@@ -404,20 +321,11 @@ export default class quadrant extends React.Component {
 									description='以鑼紋瓷罈裝盛金門高粱酒，鵝黃罈裝造型有別於特級酒的白罈，更具古樸美感，罈瓶正面飾以舞躍龍騰浮雕圖案，罈瓶背面則為「金門大高酒」字樣品相大方，大容量之罈裝酒對於陳化效果作用尤為顯著，為送禮、自用及收藏的熱門酒品。'
 								/>
 								<hr />
-								<Box
-									headline='酒液特色'
-									description='酒體晶亮透明，清香純正，入口醇甜爽淨，清爽醇香與蜜香結合，自然協調，甜美清爽淡雅，回味爽順。'
-								/>
+								<Box headline='酒液特色' description='酒體晶亮透明，清香純正，入口醇甜爽淨，清爽醇香與蜜香結合，自然協調，甜美清爽淡雅，回味爽順。' />
 								<hr />
 							</>
 							<>
-								<Info
-									ref='D0'
-									title={this.hash.D0}
-									deg='58'
-									capacity='0.5L'
-									wine={require('./img/details/C0.png')}
-								/>
+								<Info ref='D0' title={this.hash.D0} deg='58' capacity='0.5L' wine={require('./img/details/C0.png')} />
 								<hr />
 								<Box
 									headline='典故'
@@ -436,13 +344,7 @@ export default class quadrant extends React.Component {
 								<hr />
 							</>
 							<>
-								<Info
-									ref='D1'
-									title={this.hash.D1}
-									deg='58'
-									capacity='0.6L'
-									wine={require('./img/details/D0.png')}
-								/>
+								<Info ref='D1' title={this.hash.D1} deg='58' capacity='0.6L' wine={require('./img/details/D0.png')} />
 								<hr />
 								<Box
 									headline='典故'
@@ -454,10 +356,7 @@ export default class quadrant extends React.Component {
 									description='酒標選用具金屬效果的金箔紙，底紋採用金屬紋路表現質感，透過瓶身可以看到底部紋路，正是代表酒品的純淨、剔透與優質，酒標兩側以局部上光作表現，依光線角度的不同，龍形也更顯層次。'
 								/>
 								<hr />
-								<Box
-									headline='酒液特色'
-									description='酒液清亮透明、香氣幽雅柔和、口感醇順淨爽，酒體豐富協調。適合用於佐餐、宴客或好友聚會時飲用。'
-								/>
+								<Box headline='酒液特色' description='酒液清亮透明、香氣幽雅柔和、口感醇順淨爽，酒體豐富協調。適合用於佐餐、宴客或好友聚會時飲用。' />
 							</>
 						</div>
 					</div>

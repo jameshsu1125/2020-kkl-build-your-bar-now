@@ -152,7 +152,7 @@ export default class canvas extends React.Component {
 				let dat = [...this.tr.data, uid],
 					get = btoa(dat),
 					rul = Hash.root() + `signin.html?dat=${get}}`;
-				share({ id: '417583752566301', url: u, redirect_uri: rul });
+				share({ id: '417583752566301', url: u, redirect_uri: rul, hash: '金門高粱酒' });
 			}
 		});
 	}

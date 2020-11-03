@@ -109,7 +109,7 @@ export default class oneShot extends React.Component {
 								<div className='desc'>
 									酒名：畫菊
 									<br />
-									酒譜 ：38度金門高粱酒,Roku Gin, Kiwi ,Lime ,Chrysanthemum tea
+									酒譜：38度金門高粱酒,Roku Gin, Kiwi ,Lime ,Chrysanthemum tea
 									<br />
 									說明：與台灣獨特茶文化結合，融入菊花茶的風味，增加田園的風格，與金門高粱酒激盪出完美配搭。
 								</div>

@@ -22,6 +22,18 @@ export default class restaurantMenu extends React.Component {
 						<div className='hr'></div>
 					</div>
 					<div className='table-2'></div>
+					<div className='ps'>
+						<p>
+							Plan B 歐陸街頭市集小酒館
+							<br />
+							地址：
+							<a target='blank' href='https://goo.gl/maps/VScWcU65zv3ywme99'>
+								台北市大安區敦化南路一段187巷46號
+							</a>
+							<br />
+							電話 : 02-2731-0855
+						</p>
+					</div>
 				</div>
 			</div>
 		);

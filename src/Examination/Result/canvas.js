@@ -9,7 +9,6 @@ export default class canvas extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
-
 		this.tr = {
 			data: root.props.data,
 			wording: root.props.wording,
@@ -59,10 +58,12 @@ export default class canvas extends React.Component {
 					this.ctx.fillStyle = '#2f0f0f';
 					this.ctx.fillText(this.headline[this.data[0]] + ' 酒館', 670 + 138, 80);
 
+					let dt = 727,
+						dt_offset = [0, 21, 32, 10];
 					this.ctx.font = '23px Microsoft JhengHei';
 					this.ctx.fillStyle = '#d1ad5a';
 					this.ctx.fillText('恭喜你的金酒世界酒館開幕了！', 776, 145);
-					this.ctx.fillText(`${this.wording[this.data[2]]}，還不快邀請朋友`, 727, 185);
+					this.ctx.fillText(`${this.wording[this.data[2]]}，還不快邀請朋友`, dt + dt_offset[this.data[2]], 185);
 					this.ctx.fillText('來你的酒館小酌一番。', 810, 226);
 
 					let y = 565,

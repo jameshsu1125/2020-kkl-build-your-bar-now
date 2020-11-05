@@ -18,7 +18,7 @@ export default class content extends React.Component {
 		super(props);
 		this.state = { loading: false, question: false, level: true, submit: true };
 		Loader.onend = this.loader_end.bind(this);
-		this.data = [1, 0, 0, 0];
+		this.data = [0, 0, 3, 0];
 	}
 
 	loader_end() {
@@ -35,8 +35,8 @@ export default class content extends React.Component {
 
 	loader_remove() {
 		this.setState({ loading: false });
-		this.setState({ question: 'A' }, () => {
-			//this.setState({ question: 'Result' }, () => {
+		//this.setState({ question: 'A' }, () => {
+		this.setState({ question: 'Result' }, () => {
 			if (this.refs.question.in) this.refs.question.in();
 		});
 	}

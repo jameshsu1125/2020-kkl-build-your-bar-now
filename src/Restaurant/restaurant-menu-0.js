@@ -27,6 +27,19 @@ export default class restaurantMenu extends React.Component {
 						<br />
 						*部份料理可能因季節問題而調整食材，請以餐廳菜單為主
 					</div>
+					<div className='ps'>
+						<p>
+							桂香私宅 Flower No’5 RSVP
+							<br />
+							地址：
+							<a target='blank' href='https://goo.gl/maps/ZA5e1cSqw66XvqDY8'>
+								台北市中山區龍江路229巷5號
+							</a>
+							<br />
+							電話 : 02-2518-0528
+							<br />
+						</p>
+					</div>
 				</div>
 			</div>
 		);

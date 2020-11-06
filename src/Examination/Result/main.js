@@ -43,15 +43,11 @@ export default class result extends React.Component {
 		this.tr = {
 			init() {
 				this.frame.init();
-				this.lig_a.init();
-				this.lig_b.init();
 			},
 			in() {
 				$(root.refs.main).animate({ opacity: 1 }, 500, 'easeOutQuart');
 				root.refs.bar.in();
 				this.frame.in();
-				this.lig_a.in();
-				this.lig_b.in();
 			},
 			evt() {
 				root.props.TouchEvent.add('result_share', () => {
@@ -71,66 +67,6 @@ export default class result extends React.Component {
 					gtag_event('結果頁', '更了解熱門酒款');
 				});
 			},
-			lig_b: {
-				o: 0,
-				x: 100,
-				time: 5000,
-				prob: 0.7,
-				init() {
-					this.c = $(root.refs.lig_b);
-					this.tran();
-				},
-				in() {
-					$(this).animate(
-						{ o: 1, x: 274 },
-						{
-							duration: this.time,
-							step: () => this.tran(),
-							complete: () => {
-								this.tran();
-								this.in();
-							},
-							easing: 'easeOutQuart',
-						}
-					);
-				},
-				tran() {
-					this.c.css({
-						opacity: Math.random() > this.prob ? 0.5 + Math.random() * 0.5 : this.o,
-						left: this.x,
-					});
-				},
-			},
-			lig_a: {
-				o: 0,
-				x: 300,
-				time: 5000,
-				prob: 0.7,
-				init() {
-					this.c = $(root.refs.lig_a);
-					this.tran();
-				},
-				in() {
-					$(this).animate(
-						{ o: 1, x: 136 },
-						{
-							duration: this.time,
-							step: () => this.tran(),
-							complete: () => {
-								this.tran();
-								this.in();
-							},
-							easing: 'easeOutQuart',
-						}
-					);
-				},
-				tran() {
-					this.c.css({
-						opacity: Math.random() > this.prob ? 0.5 + Math.random() * 0.5 : this.o,
-						left: this.x,
-					});
-				},
-			},
 			frame: {
 				t: -150,
 				time: 800,
@@ -144,7 +80,7 @@ export default class result extends React.Component {
 					$(this)
 						.delay(this.delay)
 						.animate(
-							{ t: -15, o: 1 },
+							{ t: -80, o: 1 },
 							{
 								duration: this.time,
 								step: () => this.tran(),
@@ -220,8 +156,6 @@ export default class result extends React.Component {
 							<div className='sl'></div>
 							<div className='bottle' style={{ background: `url(${this.bottle.img})` }}></div>
 						</div>
-						<div ref='lig_a' className='light p1'></div>
-						<div ref='lig_b' className='light p2'></div>
 					</div>
 				</div>
 				<Canvas

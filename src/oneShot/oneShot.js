@@ -92,7 +92,11 @@ export default class oneShot extends React.Component {
 								<div className='commons'>Commons</div>
 								<div className='img-0'></div>
 								<div className='head'>地點</div>
-								<div className='desc'>台北市信義區光復南路447之48號</div>
+								<div className='desc'>
+									<a href='https://goo.gl/maps/7W4EeW3tf6uAXA1B6' target='blank'>
+										台北市信義區光復南路447之48號
+									</a>
+								</div>
 							</div>
 							<div className='block'>
 								<div className='head'>交通狀況</div>
@@ -142,7 +146,11 @@ export default class oneShot extends React.Component {
 								<div className='commons'>MQ Taipei</div>
 								<div className='img-3'></div>
 								<div className='head'>地點</div>
-								<div className='desc'>台北市信義區信義路五段16-1號</div>
+								<div className='desc'>
+									<a href='https://goo.gl/maps/d7Zs3sEtBiGTYKLa8' target='blank'>
+										台北市信義區信義路五段16-1號
+									</a>
+								</div>
 							</div>
 							<div className='block'>
 								<div className='head'>店家介紹</div>
@@ -160,7 +168,7 @@ export default class oneShot extends React.Component {
 								<div className='desc'>
 									酒名：畫菊
 									<br />
-									酒譜：38度金門高粱酒,Roku Gin, Kiwi ,Lime ,Chrysanthemum tea
+									酒譜：38度金門高粱酒, Roku Gin, Kiwi, Lime, Chrysanthemum tea
 									<br />
 									說明：與台灣獨特茶文化結合，融入菊花茶的風味，增加田園的風格，與金門高粱酒激盪出完美配搭。
 								</div>
@@ -176,9 +184,9 @@ export default class oneShot extends React.Component {
 								<div className='desc'>
 									酒名：千江同月
 									<br />
-									酒譜：58度金門高粱酒, Dolin Dry Vermouth,Mozart Dark Cacao,
+									酒譜：58度金門高粱酒, Dolin Dry Vermouth, Mozart Dark Cacao,
 									<br />
-									Boker’s bitter,Hazelnut Oil,Maraschino
+									Boker’s bitter, Hazelnut Oil, Maraschino
 									<br />
 									說明：一款充滿男性魅力的金酒調酒。富有層次風味的口感，搭上鹹甜滋味的地瓜球，帶出台灣獨有風格。
 								</div>

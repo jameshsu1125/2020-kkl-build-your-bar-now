@@ -27,7 +27,7 @@ export default class restaurantMenu extends React.Component {
 						<br />
 						*部份料理可能因季節問題而調整食材，請以餐廳菜單為主
 					</div>
-					<div className='ps'>
+					<div className='contact'>
 						<p>
 							桂香私宅 Flower No’5 RSVP
 							<br />

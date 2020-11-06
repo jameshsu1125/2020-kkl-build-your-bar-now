@@ -23,7 +23,7 @@ export default class restaurantMenu extends React.Component {
 					</div>
 					<div className='table-3'></div>
 					<div className='ps'>*隨餐附贈原釀21金門高粱酒溫飲一杯</div>
-					<div className='ps'>
+					<div className='contact'>
 						<p>
 							喀佈貍kabu 大眾居酒屋
 							<br />

@@ -13,12 +13,31 @@ import Result from './Result/main';
 import Submit from './../Component/submit/submit';
 import Level from './../Component/level/level';
 
+import $ from 'jquery';
+
 export default class content extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { loading: false, question: false, level: true, submit: true };
 		Loader.onend = this.loader_end.bind(this);
 		this.data = [0, 0, 0, 0];
+	}
+
+	componentDidMount() {
+		let MobileDetect = require('mobile-detect'),
+			m = new MobileDetect(window.navigator.userAgent);
+		if (m.tablet()) {
+			let h = window.innerHeight,
+				mh = 1280,
+				r = h / mh;
+			$(this.refs.all).css({
+				transform: `scale(${r})`,
+				'-webkit-transform': `scale(${r})`,
+				'-moz-transform': `scale(${r})`,
+				'-o-transform': `scale(${r})`,
+				'-ms-transform': `scale(${r})`,
+			});
+		}
 	}
 
 	loader_end() {
@@ -140,8 +159,10 @@ export default class content extends React.Component {
 
 	render() {
 		return (
-			<div id='content'>
-				{this.appendQuestion()}
+			<div ref='main' id='content'>
+				<div className='quest_container' ref='all'>
+					{this.appendQuestion()}
+				</div>
 				{this.append_submit()}
 				{this.append_level()}
 				{this.appendLoading()}

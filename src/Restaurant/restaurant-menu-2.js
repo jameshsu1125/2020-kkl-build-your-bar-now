@@ -22,7 +22,7 @@ export default class restaurantMenu extends React.Component {
 						<div className='hr'></div>
 					</div>
 					<div className='table-2'></div>
-					<div className='ps'>
+					<div className='contact'>
 						<p>
 							Plan B 歐陸街頭市集小酒館
 							<br />

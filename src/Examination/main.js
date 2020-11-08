@@ -10,10 +10,13 @@ import $ from 'jquery';
 require('jquery.waitforimages');
 
 import { gtag_install, gtag_pv, gtag_event } from 'SOCIAL/Gtag';
+import Facebook from 'SOCIAL/Facebook';
+import { facebook_id } from './../Component/_config';
 
 export default class main extends React.Component {
 	constructor(props) {
 		super(props);
+		Facebook.init(facebook_id, {});
 		TouchEvent.init();
 		gtag_install();
 	}

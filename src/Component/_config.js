@@ -44,4 +44,5 @@ module.exports = {
 		},
 	},
 	gtag_id: 'G-F7RPZD4687',
+	facebook_id: '417583752566301',
 };

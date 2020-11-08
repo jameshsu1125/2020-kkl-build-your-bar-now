@@ -1,3 +1,5 @@
+const Facebook = require('DEVICE/UserAgent').Facebook;
+
 module.exports = {
 	init: function (uid, { v = 'v8.0', callback = function () {}, onStatus = function () {} }) {
 		const self = this;
@@ -68,11 +70,22 @@ module.exports = {
 		});
 	},
 	share: function ({ id, redirect_uri, url, hash }) {
-		var u = `https://www.facebook.com/dialog/share?app_id=${id}&href=${encodeURIComponent(url)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
-		if (hash) u += `&hashtag=%23${encodeURIComponent(hash)}`;
-		window.location.href = u;
+		if (Facebook.is()) {
+			let p = {
+				method: 'share',
+				href: url,
+			};
+			if (hash) p.hashtag = '#' + hash;
+			FB.ui(p, function (response) {
+				window.location.replace(redirect_uri);
+			});
+		} else {
+			let u = `https://www.facebook.com/dialog/share?app_id=${id}&href=${encodeURIComponent(url)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
+			if (hash) u += `&hashtag=%23${encodeURIComponent(hash)}`;
+			window.location.href = u;
+		}
 	},
-	click: function () {
+	click() {
 		if (!this.is) {
 			console.log('init first');
 			return;

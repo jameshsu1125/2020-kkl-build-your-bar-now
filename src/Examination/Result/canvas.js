@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-import { UGC_share } from './../../Component/_config';
+import { UGC_share, facebook_id } from './../../Component/_config';
 import { share } from 'SOCIAL/Facebook';
 import Hash from 'UNIT/Get';
 
@@ -122,7 +122,7 @@ export default class canvas extends React.Component {
 				let dat = [...this.tr.data, uid],
 					get = btoa(dat),
 					rul = Hash.root() + `signin.html?dat=${get}}`;
-				share({ id: '417583752566301', url: u, redirect_uri: rul, hash: '金門高粱酒' });
+				share({ id: facebook_id, url: u, redirect_uri: rul, hash: '金門高粱酒' });
 			}
 		});
 	}

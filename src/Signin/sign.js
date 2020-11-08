@@ -161,11 +161,7 @@ export default class sign extends React.Component {
 			<div ref='main' id='sign'>
 				<div className='context'>
 					<div className='row'>
-						<h1>
-							恭喜您完成抽獎資料，還差一步
-							<br />
-							請您協助填寫以下資料
-						</h1>
+						<h1>恭喜你完成FB分享，還差一步請您填寫以下資料，讓我們能聯絡您。</h1>
 					</div>
 					<hr />
 					<div className='row'>
@@ -178,7 +174,7 @@ export default class sign extends React.Component {
 						</div>
 					</div>
 					<div className='row mt'>
-						<div className='col-3'>電話</div>
+						<div className='col-3'>手機號碼</div>
 						<div className='col'>
 							<input maxLength='10' type='tel' ref='tel' />
 						</div>

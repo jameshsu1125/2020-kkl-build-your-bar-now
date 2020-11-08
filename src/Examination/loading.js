@@ -1,6 +1,7 @@
 import React from 'react';
 import './loading.less';
 import $ from 'jquery';
+import swal from 'sweetalert';
 require('jquery-easing');
 require('jquery.waitforimages');
 
@@ -8,6 +9,7 @@ export default class loading extends React.Component {
 	constructor(props) {
 		super(props);
 		const root = this;
+		this.confirm = { loaded: false, alert: false };
 		this.tr = {
 			t: -50,
 			o: 0,
@@ -27,6 +29,12 @@ export default class loading extends React.Component {
 						complete: () => {
 							this.tran();
 							root.props.ready();
+							setTimeout(() => {
+								swal({ title: '提醒您，結束遊戲記得「分享測試結果至個人FB(預設公開)」、「＃金門高粱酒」，才能填寫抽獎表單，完成抽獎程序唷！' }).then((e) => {
+									root.confirm.alert = true;
+									this.checkRemind();
+								});
+							}, 500);
 						},
 						easing: 'easeOutBack',
 					}
@@ -34,6 +42,9 @@ export default class loading extends React.Component {
 
 				this.canvas.in();
 				this.text.in();
+			},
+			checkRemind() {
+				if (root.confirm.alert && root.confirm.loaded) this.out();
 			},
 			out: function () {
 				$(this).animate(
@@ -163,7 +174,9 @@ export default class loading extends React.Component {
 	}
 
 	out() {
-		this.tr.out();
+		//this.tr.out();
+		this.confirm.loaded = true;
+		this.tr.checkRemind();
 	}
 
 	componentDidMount() {

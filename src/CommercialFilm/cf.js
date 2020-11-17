@@ -71,10 +71,17 @@ export default class cf extends React.Component {
 		return (
 			<div ref='main' id='cf'>
 				<div ref='video' className='video'>
+					<iframe
+						width='640'
+						height='360'
+						src='https://www.youtube.com/embed/HHPkgsilz60'
+						frameBorder='0'
+						allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+						allowFullscreen></iframe>
 					<div id='close' className='close'></div>
-					品牌影片
+					{/* 品牌影片
 					<br />
-					敬請期待
+					敬請期待 */}
 				</div>
 			</div>
 		);

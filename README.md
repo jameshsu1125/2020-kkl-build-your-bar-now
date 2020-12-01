@@ -16,7 +16,7 @@ $ [sudo] npm i webpack webpack-cli webpack-dev-server node-pre-gyp -g
 $ npm start
 ```
 
-#### project run with http://localhost:8080
+#### run on http://localhost:8080
 
 ### output to /dist
 

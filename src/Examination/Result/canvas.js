@@ -123,6 +123,7 @@ export default class canvas extends React.Component {
 					get = btoa(dat);
 				// ? remove redirect ,rul = Hash.root() + `signin.html?dat=${get}}`; share({ id: facebook_id, url: u, redirect_uri: rul, hash: '金門高粱酒' });
 				share({ id: facebook_id, url: u, hashtag: '金門高粱酒' });
+				this.props.removeLoading();
 			}
 		});
 	}

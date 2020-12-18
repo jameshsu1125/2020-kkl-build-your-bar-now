@@ -1,5 +1,6 @@
 const Facebook = require('DEVICE/UserAgent').Facebook;
-
+const UserAgent = require('DEVICE/UserAgent');
+const Hash = require('UNIT/Get');
 module.exports = {
 	init: function (uid, { v = 'v8.0', callback = function () {}, onStatus = function () {} }) {
 		const self = this;
@@ -69,20 +70,28 @@ module.exports = {
 			console.log(e);
 		});
 	},
-	share: function ({ id, redirect_uri, url, hash }) {
+	share: function ({ id, redirect_uri, url, hashtag, quote }) {
 		if (Facebook.is()) {
 			let p = {
 				method: 'share',
 				href: url,
 			};
-			if (hash) p.hashtag = '#' + hash;
+			if (hashtag) p.hashtag = '#' + hashtag;
+			if (quote) p.quote = quote;
 			FB.ui(p, function (response) {
-				window.location.replace(redirect_uri);
+				if (redirect_uri) window.location.replace(redirect_uri);
 			});
 		} else {
-			let u = `https://www.facebook.com/dialog/share?app_id=${id}&href=${encodeURIComponent(url)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
-			if (hash) u += `&hashtag=%23${encodeURIComponent(hash)}`;
-			window.location.href = u;
+			let u = `https://www.facebook.com/dialog/share?app_id=${id}&href=${encodeURIComponent(url)}`;
+			if (redirect_uri) u += `&redirect_uri=${encodeURIComponent(redirect_uri)}`;
+			if (hashtag) u += `&hashtag=%23${encodeURIComponent(hashtag)}`;
+			if (quote) u += `&quote=${encodeURIComponent(quote)}`;
+
+			if (redirect_uri) window.location.href = u;
+			else {
+				if (UserAgent.get() === 'desktop') window.open(u);
+				else window.location.href = u += `&redirect_uri=${encodeURIComponent(Hash.root())}`;
+			}
 		}
 	},
 	click() {

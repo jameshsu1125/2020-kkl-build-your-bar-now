@@ -143,7 +143,7 @@ export default class result extends React.Component {
 						</div>
 						<div className='btns'>
 							<div id='result_share' className='btn'>
-								分享抽獎
+								立即分享
 							</div>
 							<div id='result_replay' className='btn'>
 								再開一家

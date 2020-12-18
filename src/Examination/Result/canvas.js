@@ -120,9 +120,9 @@ export default class canvas extends React.Component {
 				uid = e.share_id;
 			if (u) {
 				let dat = [...this.tr.data, uid],
-					get = btoa(dat),
-					rul = Hash.root() + `signin.html?dat=${get}}`;
-				share({ id: facebook_id, url: u, redirect_uri: rul, hash: '金門高粱酒' });
+					get = btoa(dat);
+				// ? remove redirect ,rul = Hash.root() + `signin.html?dat=${get}}`; share({ id: facebook_id, url: u, redirect_uri: rul, hash: '金門高粱酒' });
+				share({ id: facebook_id, url: u, hashtag: '金門高粱酒' });
 			}
 		});
 	}

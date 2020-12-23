@@ -1,0 +1,22 @@
+#content {
+	position: relative;
+	width: 768px;
+	max-height: 90%;
+	display: inline-block;
+
+	.sticky {
+		position: fixed;
+		width: 768px;
+		height: 128px;
+		background-color: rgba(21, 11, 5, 1);
+		top: 0px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	#content {
+		.sticky {
+			height: 143px;
+		}
+	}
+}

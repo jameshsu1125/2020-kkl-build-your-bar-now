@@ -30,14 +30,20 @@ export default class loading extends React.Component {
 							this.tran();
 							root.props.ready();
 							setTimeout(() => {
-								root.confirm.alert = true;
-								this.checkRemind();
-								/** 
-								swal({ title: '提醒您，結束遊戲記得「分享測試結果至個人FB(預設公開)」、「＃金門高粱酒」，才能填寫抽獎表單，完成抽獎程序唷！' }).then((e) => {
-									root.confirm.alert = true;
-									this.checkRemind();
+								swal({
+									title: '得獎名單已經出爐了! 點擊 [OK] 看更多資訊。',
+									buttons: {
+										cancel: true,
+										confirm: true,
+									},
+								}).then((e) => {
+									if (e) {
+										window.location.href = './award.html';
+									} else {
+										root.confirm.alert = true;
+										this.checkRemind();
+									}
 								});
-								 */
 							}, 500);
 						},
 						easing: 'easeOutBack',

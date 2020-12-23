@@ -15,6 +15,7 @@ module.exports = {
 		commercialFilm: './src/commercialFilm.js',
 		restaurant: './src/restaurant.js',
 		oneShot: './src/oneShot.js',
+		award: './src/award.js',
 	},
 	module: {
 		rules: [

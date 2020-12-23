@@ -77,6 +77,12 @@ export default class content extends React.Component {
 						window.location.href = './terms.html';
 					}, 300);
 				});
+				root.props.TouchEvent.add('menu_7', () => {
+					gtag_event('主選單', '得獎名單');
+					setTimeout(() => {
+						window.location.href = './award.html';
+					}, 300);
+				});
 				this.resize();
 				$(window).resize(() => this.resize());
 			},
@@ -120,6 +126,9 @@ export default class content extends React.Component {
 						</div>
 						<div id='menu_6' className='btn'>
 							活動條款
+						</div>
+						<div id='menu_7' className='btn'>
+							得獎名單
 						</div>
 					</div>
 				</div>

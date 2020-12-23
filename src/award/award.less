@@ -1,0 +1,104 @@
+#award {
+	float: left;
+	width: 100%;
+	height: 100%;
+	margin-top: 112px;
+
+	.context {
+		float: left;
+		width: 768px;
+		height: auto;
+		overflow: hidden;
+		padding-bottom: 150px;
+
+		.pd {
+			padding: 0px 34px;
+			margin-top: 40px;
+		}
+
+		.row {
+			float: left;
+			width: 100%;
+			height: auto;
+			color: #fff;
+
+			.col {
+				position: relative;
+				float: left;
+				width: 100%;
+				padding: 0 64px;
+				box-sizing: border-box;
+				text-align: justify;
+				font-size: 1.6em;
+				margin: 20px 0px;
+
+				& > .text {
+					padding: 0px 15px;
+					font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, Helvetica, sans-serif;
+				}
+
+				table {
+					width: 100%;
+
+					th {
+						position: relative;
+						float: left;
+						width: 100%;
+						height: auto;
+						border-top: solid 2px #d1ad5a;
+						border-bottom: solid 2px #d1ad5a;
+						text-align: center;
+						margin-top: -2px;
+						padding-bottom: 20px;
+						padding-top: 20px;
+
+						font-size: 3rem;
+					}
+
+					tbody {
+						td {
+							text-align: center;
+							padding-bottom: 20px;
+							padding-top: 20px;
+						}
+
+						tr:nth-child(even) {
+							background-color: #957644;
+						}
+
+						tr:nth-child(odd) {
+							background-color: #725a31;
+						}
+					}
+				}
+			}
+
+			@title: './../Restaurant/img/h-g.png';
+			.headline {
+				position: relative;
+				float: left;
+				width: image-width(@title);
+				height: image-height(@title);
+				margin-bottom: -38px;
+
+				.bg {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					background-image: url(@title);
+					top: 0;
+					left: 0;
+				}
+
+				.txt {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					color: #fff;
+					line-height: image-height(@title);
+					font-size: 1.9em;
+				}
+			}
+		}
+	}
+}
